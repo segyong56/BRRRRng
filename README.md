@@ -13,7 +13,7 @@
 
 | 역할 |  이름  |   담당    | Github                                                                                                                                                                      |
 | :--: | :----: | :-------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 팀장 | 이세경 | FRONT-END |        |
+| 팀장 | 이세경 | FRONT-END |  <a href="https://github.com/segyong56" target="_blank"><img src="https://img.shields.io/badge/segyong56-5294E2?style=for-the-badge&logo=GitHub&logoColor=white"/></a>      |
 | 팀원 | 오가영 | FRONT-END |        |
 | 팀원 | 오동욱 | BACK-END  |        |
 | 팀원 | 강주오 | BACK-END  |  <a href="https://github.com/KangJuO" target="_blank"><img src="https://img.shields.io/badge/KangJuO-5294E2?style=for-the-badge&logo=GitHub&logoColor=white"/></a>  |

@@ -17,7 +17,7 @@ assignees: ''
 - 
 - 
 
-Try (Action Items)
+### Try (Action Items)
  1. [ ] Todo 형식으로 작성해주세요.
  2. [ ] Todo 형식으로 작성해주세요.
  3. [ ] Todo 형식으로 작성해주세요.

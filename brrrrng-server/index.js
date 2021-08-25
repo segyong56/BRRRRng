@@ -1,15 +1,8 @@
-import mongoose from 'mongoose';
-import express from "express";
-import config from "./config/key";
+const mongoose = require("mongoose");
+const express = require("express");
+const config = require("./config/key");
 const app = express();
 const port = 80;
-
-app.use(express.json());
-app.use(cors({
-  origin: true,
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
-}));
 
 mongoose
   .connect(config.mongoURI, {
@@ -20,7 +13,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
-  res.send("BRRRRng......");
+  res.send("Hello World!!!");
 });
 
 app.listen(port, () => {

@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
     },
     email: {
         type: String,
-        trim: true, // => ju o@aaa.aaa => juo@aaa.aaa 스페이스를 제거해줌
+        trim: true,
         unique: true,
         required: true
     },
@@ -26,6 +26,6 @@ const userSchema = mongoose.Schema({
     }]
 });
 
-const User = mongoose.model('User', userSchema); //스키마를 모델로 감싸줌 (이름, 스키마)
+const User = mongoose.model('User', userSchema);
 
 module.exports = { User };

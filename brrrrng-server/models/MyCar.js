@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const mycarSchema = mongoose.Schema({
   carname: {
@@ -20,4 +20,4 @@ const mycarSchema = mongoose.Schema({
 
 const MyCar = mongoose.model("MyCar", mycarSchema);
 
-export default MyCar;
+module.exports = { MyCar };

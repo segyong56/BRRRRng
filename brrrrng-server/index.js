@@ -1,11 +1,13 @@
-import { connect } from "mongoose";
-import express from "express";
-import { mongoURI } from "./config/key";
-import userRouter from "./routers/userRouter";
+const express = require('express');
+const mongoose = require('mongoose');
+const config = require('./config/key');
+const userRouter = require('./routers/userRouter');
 const app = express();
 const port = 80;
 
-connect(mongoURI, {
+app.use(express.json());
+
+mongoose.connect(config.mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

@@ -8,6 +8,7 @@ import SearchPage from "./component/SearchPage/Search";
 import ResultPage from "./component/SearchPage/Result";
 import MyPage from "./component/Mypage/Main_menu/Dashboard";
 import CarListPage from "./component/Mypage/Carlist_menu/Carlist";
+import CarSearchPage from "./component/Mypage/Carlist_menu/CarSearch"
 import AddrListPage from "./component/Mypage/Addrlist_menu/Addrlist";
 import UserInfoPage from "./component/Mypage/EditProfile_menu/UserInfo";
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/search/result" component={ResultPage} exact />
           <Route path="/mypage" component={MyPage} exact />
           <Route path="/mypage/carlist" component={CarListPage} exact />
+          <Route path="/mypage/carsearch" component={CarSearchPage} exact />
           <Route path="/mypage/addrlist" component={AddrListPage} exact />
           <Route path="/mypage/user" component={UserInfoPage} exact />
         </Switch>

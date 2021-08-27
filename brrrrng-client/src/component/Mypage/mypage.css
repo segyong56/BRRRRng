@@ -1,0 +1,218 @@
+
+/* header */
+.mypage_nav-container {
+  width: 100%;
+  height: 75px;
+  background-color: #46abf4;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: gray;
+  margin: 14px 50px 14px 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.mypage_logo-container {
+  padding: 1rem;
+  width: 180px;
+  height: 80%;
+}
+
+/* side menu */
+
+.mypage_section_box {
+  width: 100%;
+  height: 100%;
+  background-color: #46abf4;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sideMenu_box {
+  width: 10%;
+  height: 100%;
+  background-color: #46abf4;
+  display: flex;
+  justify-content: center;
+}
+
+.contents_box {
+  width: 90%;
+  height: 100%;
+  border-radius: 53px 0px 0px 0px;
+  background-color: #f7f8fa;
+  display: flex;
+  justify-content: center;
+}
+
+.sideMenu_container {
+  width: 100%;
+  margin-top: 65px;
+}
+
+.sideMenu {
+  width: 100%;
+  height: 50px;
+  margin-top: 30px;
+  text-align: center;
+  font-size:18px;
+  font-weight: bold;
+  color: #f7f8fa;
+  line-height: 50px;
+}
+
+.sideMenu:hover {
+  width: 100%;
+  height: 50px;
+  color: #000000;
+  background-color: rgba(241, 246, 248, 0.932);
+}
+
+.active {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  text-align: center;
+}
+
+.active1 {
+  color: #000000 !important;
+  font-size: 18px;
+  line-height: 50px;
+}
+
+
+/* dashboard page */
+
+
+
+/* car list page */
+
+.carlist-area {
+  width: 60%;
+  margin-top: 100px;
+}
+
+.carlist-title {
+  text-align: center;
+  font-size: 40px;
+  font-family: "Jua", sans-serif;
+}
+
+.carlist-addBtn {
+  width: 100%;
+  height: 50px;
+}
+
+.carlist-addBtn > button {
+  margin-top: 10px;
+  float: right;
+  width: 100px;
+  height: 40px;
+  background: #f9e450;
+  border: 2px solid #1b1b1b;
+  box-sizing: border-box;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  
+}
+.table-d {
+  font-weight: bold;
+}
+
+thead th:nth-child(1) {
+  width: 10%;
+}
+
+thead th:nth-child(2) {
+  width: 25%;
+}
+
+th {
+  background-color: #E6F915;
+  color: #0000007e;
+  padding: 10px;
+  font-size: 17px;
+}
+
+td {
+  border-bottom: 2px solid lightgrey;
+  padding: 13px;
+  text-align: center;
+}
+
+.fa-trash-alt {
+  font-size: 28px;
+}
+
+/* car search page */
+
+.search-box {
+  width: 650px;
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-area {
+  text-align: center;
+  font-size: 50px;
+  margin: 20px;
+  font-family: "Jua", sans-serif;
+}
+
+.search-area {
+  width: 100%;
+  height: 50px;
+  display: flex;
+}
+
+.search-input {
+  width: 600px;
+  height: 50px;
+}
+
+.search-btn {
+  width: 14%;
+  height: 50px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #f9e450;
+  border: 2px solid black;
+}
+
+.search-btn > i {
+  font-size: 30px;
+  line-height: 50px;
+}
+
+.search-input > input {
+  width: 100%;
+  height: 50px;
+  border: 2px solid lightgray;
+  background-color: #e0e2e7;
+  border-radius: 10px 0px 0px 10px;
+  font-size: 20px;
+}
+
+/* address list page */
+
+
+/* user profile page */
+

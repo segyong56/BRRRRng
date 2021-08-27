@@ -14,7 +14,6 @@ const userSchema = mongoose.Schema({
   },
   password: {
     type: String,
-    minlength: 6,
   },
   address: [
     {
@@ -26,6 +25,9 @@ const userSchema = mongoose.Schema({
       type: String,
     },
   ],
+  refreshToken: {
+    type: String,
+  },
 });
 
 const User = mongoose.model("User", userSchema);

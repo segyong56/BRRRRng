@@ -6,11 +6,6 @@ const userSchema = mongoose.Schema({
     maxlength: 50,
     required: true,
   },
-  userid: {
-    type: String,
-    unique: true,
-    required: true,
-  },
   email: {
     type: String,
     trim: true,
@@ -19,8 +14,13 @@ const userSchema = mongoose.Schema({
   },
   password: {
     type: String,
-    minlength: 5,
+    minlength: 6,
   },
+  address: [
+    {
+      type: String,
+    },
+  ],
   carid: [
     {
       type: String,

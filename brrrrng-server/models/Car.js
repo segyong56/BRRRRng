@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const mycarSchema = mongoose.Schema({
+const carSchema = mongoose.Schema({
   carname: {
     type: String,
     required: true,
@@ -18,6 +18,6 @@ const mycarSchema = mongoose.Schema({
   },
 });
 
-const MyCar = mongoose.model("MyCar", mycarSchema);
+const Car = mongoose.model("Car", carSchema);
 
-module.exports = { MyCar };
+module.exports = { Car };

@@ -1,10 +1,22 @@
-const { Router } = require("express")
-const { home } = require("../controllers/userController");
+const express = require("express");
+const {
+  getInfo,
+  delUser,
+  putEdit,
+  putAddress,
+  delAddress,
+  putMycar,
+  delMycar,
+} = require("../controllers/userController");
 
-const userRouter = Router();
+const userRouter = express.Router();
 
-userRouter.get('/', home)
+userRouter.get("/:id/info", getInfo);
+userRouter.delete("/:id/delete/", delUser);
+userRouter.put("/:id/edit/", putEdit);
+userRouter.put("/:id/address", putAddress);
+userRouter.delete("/:id/address", delAddress);
+userRouter.put("/:id/mycar/", putMycar);
+userRouter.delete("/:id/mycar/", delMycar);
 
-//userRouter.get("/logout", logout);
-
-module.exports = userRouter ;
+module.exports = userRouter;

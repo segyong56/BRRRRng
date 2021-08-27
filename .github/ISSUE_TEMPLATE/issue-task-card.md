@@ -25,4 +25,3 @@ assignees: ''
 1. [ ] Job1
 2. [ ] Job2
 3. [ ] Job3
-

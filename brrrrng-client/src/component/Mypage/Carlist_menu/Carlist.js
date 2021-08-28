@@ -1,8 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../mypage.css'
 import Header from '../util/Header'
 import SideMenu from '../util/SideMenu'
 import ListTable from './section/ListTable'
+
+import carInfo from '../../../dummydata/carInfo'
+
+
 const Carlist = () => {
   return (
     <div>
@@ -21,9 +26,9 @@ const Carlist = () => {
                         <i className="fas fa-clipboard-list"></i> 내 차 리스트
                     </div>
                     <div className="carlist-addBtn">
-                        <button><i className="fas fa-plus"></i> 추가하기</button>
+                        <Link to="/mypage/carsearch"><button><i className="fas fa-plus"></i> 추가하기</button></Link>
                     </div>
-                    <ListTable />
+                    <ListTable carinfo={carInfo}/>
                 </div>
 
             </div>

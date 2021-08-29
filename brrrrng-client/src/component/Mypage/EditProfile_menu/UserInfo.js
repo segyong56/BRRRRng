@@ -11,14 +11,14 @@ const UserInfo = () => {
         <div className="mypage_section_box">
 
             <div className="sideMenu_box">
-               <SideMenu />
+              <SideMenu />
             </div>
             <div className="contents_box">
             
               
 
             </div>
-         </div>
+        </div>
     </section>
 
     </div>

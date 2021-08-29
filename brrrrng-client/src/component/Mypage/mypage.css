@@ -12,7 +12,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: gray;
+  /* background-color: gray; */
   margin: 14px 50px 14px 20px;
 }
 
@@ -25,6 +25,41 @@ img {
   padding: 1rem;
   width: 180px;
   height: 80%;
+}
+
+.searchContainer {
+  width: 500px;
+}
+
+.searchBar {
+  background-color: #fff;
+  margin-top: 20px;
+  border-radius: 20px;
+  height: 45%;
+  width: 100%;
+}
+
+#nav-search {
+  color: #000000;
+  margin: 3px 5px 5px 0;
+  float: right;
+}
+
+.menuBtn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 10px;
+}
+
+.fa-user-circle {
+  color: #fff;
+  margin: 10px;
+}
+.user-btn {
+  width: 50px;
+  height: 50px;
+  margin-right: 1em;
 }
 
 /* side menu */
@@ -93,6 +128,139 @@ img {
 
 /* dashboard page */
 
+.wrapper {
+  margin: 5% 0 0 0;
+  /* padding: 10%; */
+  text-align: center;
+  justify-content: center;
+  width: 80%;
+  height: 60%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+card {
+  width: 45%;
+  padding: 5px;
+  margin : 10px;
+  height: 60%;
+  background: #ffffff;  
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.301); 
+  border-radius: 20px;
+}
+
+.card_title {
+  font-family: 'Cafe24Ssurround';
+  margin: 20px auto 0 auto;
+  text-align: center;
+  font-size: 20px;
+}
+
+.card_content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  height: fit-content;
+  width: 100%;
+  height: 55%;
+}
+
+#user-circle {
+  color: gray;
+  margin: 10px;
+}
+
+button {
+  border: 2px solid;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  background: #F9E450;
+  width: 100px;
+  height: 30px;
+}
+
+#dash-addBtn {
+  font-family: 'Cafe24Ssurround';
+  font-size: 16px;
+  width: 90%;
+  height: 40px;
+}
+
+.list_box {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+  text-align: center;
+  width: 90%;
+  height: 80%;
+}
+
+@media(max-width: 470px){ /*반응형 대응을 위한 스타일*/
+  .list_box{
+    width: 50%;
+  }
+}
+
+.fa-car {
+  color: gray;
+  margin: 10px;
+}
+
+.content1 {
+  margin: 5px 0 20px 0;
+}
+
+li {
+  font-family: 'Cafe24SsurroundAir';
+  text-align: center;
+  list-style: none;
+}
+
+#dash-table {
+  width: 100%;
+  border-collapse: collapse;  
+}
+
+#dash-th:nth-child(1) {
+  width: 30%;
+}
+
+#dash-th:nth-child(2) {
+  width: 30%;
+}
+
+#dash-th {
+  background-color: lightgrey;
+  color: #f7f8fa;
+  font-size: 17px;
+  padding: 10px;
+}
+
+#userInfo {
+  font-family: 'Cafe24SsurroundAir';
+  font-size: 15px;
+  background-color: #fff;
+  color: #000000;
+}
+
+#dash-td {
+  font-family: 'Cafe24SsurroundAir' !important;
+  border-bottom: 2px solid #E0E2E7;
+  font-size: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+#moreBtn {
+  display: flex;
+  margin: 20px;
+  height: 40px;
+  float: right;
+}
 
 
 /* car list page */
@@ -212,7 +380,19 @@ td {
 }
 
 /* address list page */
-
+.address-title {
+  width: 100%;
+  height: 75px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
 
 /* user profile page */
 
+/* Footer */
+.load-container {
+  width: 100%;
+  /* height: 50px; */
+  /* margin-bottom: 0; */
+}

@@ -68,6 +68,7 @@ img {
   font-weight: bold;
   color: #f7f8fa;
   line-height: 50px;
+  cursor: pointer;
 }
 
 .sideMenu:hover {
@@ -77,13 +78,33 @@ img {
   background-color: rgba(241, 246, 248, 0.932);
 }
 
-.active {
-  width: 100%;
-  height: 50px;
-  background-color: white;
-  text-align: center;
+.sideMenu > a {
+  color: #f7f8fa;
 }
 
+.sideMenu > a:hover {
+  color: black;
+}
+
+ul {
+  width: 100%;
+  height: 50px;
+  margin-top: 30px;
+  text-align: center;
+  font-size:18px;
+  font-weight: bold;
+  color: #f7f8fa;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+.sideMenu {
+  width: 100% auto;
+}
+.focused {
+  background-color: #f7f8fa;
+  color: #000000;
+}
 .active1 {
   color: #000000 !important;
   font-size: 18px;
@@ -111,9 +132,10 @@ img {
 .carlist-addBtn {
   width: 100%;
   height: 50px;
+  
 }
 
-.carlist-addBtn > button {
+.carlist-addBtn > a > button {
   margin-top: 10px;
   float: right;
   width: 100px;
@@ -124,6 +146,7 @@ img {
   border-radius: 20px;
   font-size: 16px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 table {
@@ -151,6 +174,11 @@ th {
   font-size: 17px;
 }
 
+tr {
+
+  cursor: pointer;
+}
+
 td {
   border-bottom: 2px solid lightgrey;
   padding: 13px;
@@ -159,60 +187,289 @@ td {
 
 .fa-trash-alt {
   font-size: 28px;
+  cursor: pointer;
 }
 
 /* car search page */
 
 .search-box {
   width: 650px;
-  margin-top: 200px;
+  margin-top: 140px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .title-area {
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
   margin: 20px;
   font-family: "Jua", sans-serif;
 }
 
 .search-area {
-  width: 100%;
+  width: 90%;
   height: 50px;
   display: flex;
+  justify-content: center;
 }
 
 .search-input {
-  width: 600px;
-  height: 50px;
+  width: 450px;
+  height: 45px;
 }
 
 .search-btn {
   width: 14%;
-  height: 50px;
+  height: 45px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 0;
   background-color: #f9e450;
   border: 2px solid black;
+  cursor: pointer;
 }
 
 .search-btn > i {
   font-size: 30px;
-  line-height: 50px;
+  line-height: 40px;
 }
 
 .search-input > input {
   width: 100%;
-  height: 50px;
+  height: 45px;
   border: 2px solid lightgray;
   background-color: #e0e2e7;
   border-radius: 10px 0px 0px 10px;
   font-size: 20px;
 }
 
+.addBtn-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.addBtn-box > div > button {
+  
+  width: 130px;
+  height: 40px;
+  background: #f9e450;
+  border: 2px solid #1b1b1b;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.addBtn-box > div > button:hover {
+
+  background: #ffbb38;
+
+}
+
+/* result area */
+
+.result-box {
+  width: 100%;
+}
 /* address list page */
 
 
 /* user profile page */
 
+.userinfo_box {
+  width: 50%;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-title {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Jua", sans-serif;
+}
+
+.userinfo_icon-area {
+  text-align: center;
+}
+
+.fa-user-circle {
+  font-size: 70px;
+}
+
+.userinfo_icon-area {
+  width: 100%;
+  height: 80px;
+}
+
+.userinfo_info-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.userinfo_info {
+  width: 50%;
+  border: 2px solid lightgray;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoTable {
+  padding: 15px;
+}
+
+.info-box {
+  margin-top: 10px;
+}
+
+.userinfo-btn_area {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.editBtn > a > button {
+  color: #000000;
+  margin: 10px;
+  float: right;
+  width: 200px;
+  height: 40px;
+  background: #f9e450;
+  border: 2px solid #1b1b1b;
+  box-sizing: border-box;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.deleteBtn > button {
+  margin: 10px;
+  float: right;
+  width: 200px;
+  height: 40px;
+  background: #f9e450;
+  border: 2px solid #1b1b1b;
+  box-sizing: border-box;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.deleteBtn > button:hover {
+  background: #ffbb38;
+}
+
+.editBtn > a > button:hover {
+  background: #ffbb38;
+}
+
+/* edit user profile page */
+
+
+.edituserinfo_box {
+  width: fit-content;
+  margin-top: 100px;
+}
+
+.edituserinfo-title {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Jua", sans-serif;
+}
+
+.edituserinfo_icon-area {
+  text-align: center;
+}
+
+.fa-user-circle {
+  font-size: 70px;
+}
+
+.userinfo_icon-area {
+  width: 100%;
+  height: 80px;
+}
+
+.editform_box {
+  margin-top: 20px;
+}
+
+.input_box {
+  display: flex;
+  width: 100%;
+}
+
+.label {
+  width: 30%;
+  font-size: 15px;
+}
+
+.input{
+  width: 70%;
+  font-size: 15px;
+}
+
+.input > input {
+  width: 250px;
+  height: 35px;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+}
+
+.saveBtn_box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.saveBtn > button {
+  color: #000000;
+  margin: 10px;
+  float: right;
+  width: 200px;
+  height: 40px;
+  background: #f9e450;
+  border: 2px solid #1b1b1b;
+  box-sizing: border-box;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.saveBtn > a > button {
+  color: #000000;
+  margin: 10px;
+  float: right;
+  width: 200px;
+  height: 40px;
+  background: #f9e450;
+  border: 2px solid #1b1b1b;
+  box-sizing: border-box;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.saveBtn > button:hover {
+  background: #ffbb38;
+}
+
+.saveBtn > a > button:hover {
+  background: #ffbb38;
+}

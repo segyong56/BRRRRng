@@ -5,7 +5,9 @@ import Empty from "./Empty";
 const ResultList = ({ carinfo }) => {
   const [currentIdx, setCurrentIdx] = useState(null);
   const [checked, setChecked] = useState(false);
+ 
   const addToMycarlist = (data, idx) => {
+    console.log(data)
     setCurrentIdx(idx);
     setChecked(!checked)
   };

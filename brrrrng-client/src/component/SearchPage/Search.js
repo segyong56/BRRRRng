@@ -36,7 +36,7 @@ const Search = () => {
 
   }
 
-  console.log(`${city} ${district} ${address}`);
+ 
   return (
     <div>
       <Header />

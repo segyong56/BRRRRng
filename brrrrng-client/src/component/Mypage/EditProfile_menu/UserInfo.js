@@ -1,10 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link} from "react-router-dom";
+import { useDispatch } from 'react-redux'
 import "../mypage.css";
 import Header from "../util/Header";
 import SideMenu from "../util/SideMenu";
-
+import { getUserInfo } from '../../../_actions/userAction'
 const UserInfo = () => {
+
+  const dispatch = useDispatch();
+
+  const id = "612b0780414f63a162c7653b"
+
+useEffect(() => {
+
+
+  dispatch(getUserInfo(id))
+  
+  
+}, [])
+
+
   return (
     <div>
       <Header />

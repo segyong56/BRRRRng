@@ -14,7 +14,12 @@ const Result = () => {
   const size = [600, 600];
 
   useEffect(() => {
-    axios.get("http://localhost:4000/callback").then((result) => {
+
+    const data = {
+      addr: "서울특별시"
+    }
+   
+    axios.post("http://localhost:4000/callback", data).then((result) => {
       console.log(result);
       setChargerStations(result.data.data);
     });

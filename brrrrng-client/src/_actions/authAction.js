@@ -21,10 +21,9 @@ export const signupRequest = (data) => {
 
 export const loginRequest = (data) => {
   const request = axios.post(`${API_URL}/auth/login`, data).then((response) => {
-    console.log(response);
     return response.data;
   });
-  //console.log(request);
+  console.log(request);
   return {
     type: SUCCESS_LOGIN,
     payload: request,
@@ -32,8 +31,6 @@ export const loginRequest = (data) => {
 };
 
 export const logoutRequest = () => {
-  console.log(document);
-
   const request = axios
     .get(`${API_URL}/auth/logout`, { withCredentials: true })
     .then((response) => {

@@ -11,6 +11,7 @@ const auth = async (req, res, next) => {
     //토큰이 유효하면 pass
     if (accessDecoded) {
       req.cookies.accessToken = accessToken;
+      req.body._id = userData._id;
       return next();
     }
   } catch (error) {

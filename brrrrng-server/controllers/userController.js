@@ -115,7 +115,6 @@ const putMycar = async (req, res) => {
   const getCarInfo = await Car.findOne({
     carid,
   });
-  console.log(getCarInfo);
   const putCar = await User.findByIdAndUpdate(
     { _id },
     {

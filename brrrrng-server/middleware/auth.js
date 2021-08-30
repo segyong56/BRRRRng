@@ -12,6 +12,7 @@ const auth = async (req, res, next) => {
     if (accessDecoded) {
       req.cookies.accessToken = accessToken;
       req.body._id = userData._id;
+      return next();
     }
   } catch (error) {
     try {

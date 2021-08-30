@@ -8,7 +8,7 @@ const {
   putMycar,
   delMycar,
 } = require("../controllers/userController");
-const { auth } = require("../middleware/auth");
+const { auth } = require("./middleware/auth");
 
 const userRouter = express.Router();
 

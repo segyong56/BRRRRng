@@ -106,7 +106,7 @@ const logout = async (req, res) => {
   try {
     await User.findByIdAndUpdate(
       {
-        _id: req.params.id,
+        _id: req.body._id,
       },
       {
         refreshToken: null,

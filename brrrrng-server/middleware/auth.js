@@ -33,6 +33,7 @@ const auth = async (req, res, next) => {
           };
 
           req.accessToken = genAccessToken(userData);
+          req.body._id = userData._id;
           return next();
         }
       }

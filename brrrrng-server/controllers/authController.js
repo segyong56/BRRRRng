@@ -75,6 +75,9 @@ const login = async (req, res) => {
     );
 
     res.status(200).cookie("accessToken", accessToken, {
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
+      domain: "http://localhost:3000",
+      path: "/",
       sameSite: "none",
       httpOnly: true,
       secure: true,
@@ -82,6 +85,9 @@ const login = async (req, res) => {
     res
       .status(200)
       .cookie("refreshToken", refreshToken, {
+        maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
+        domain: "http://localhost:3000",
+        path: "/",
         sameSite: "none",
         httpOnly: true,
         secure: true,
@@ -114,6 +120,9 @@ const logout = async (req, res) => {
     );
 
     res.status(200).cookie("accessToken", null, {
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
+      domain: "http://localhost:3000",
+      path: "/",
       sameSite: "none",
       httpOnly: true,
       secure: true,
@@ -121,6 +130,9 @@ const logout = async (req, res) => {
     res
       .status(200)
       .cookie("refreshToken", null, {
+        maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
+        domain: "http://localhost:3000",
+        path: "/",
         sameSite: "none",
         httpOnly: true,
         secure: true,
@@ -137,6 +149,9 @@ const logout = async (req, res) => {
 const authtest = (req, res) => {
   res
     .cookie("accessToken", req.accessToken, {
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
+      domain: "http://localhost:3000",
+      path: "/",
       sameSite: "none",
       httpOnly: true,
       secure: true,

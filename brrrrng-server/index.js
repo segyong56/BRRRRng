@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const config = require("./config/key");
 const userRouter = require("./routers/userRouter");
 const authRouter = require("./routers/authRouter");

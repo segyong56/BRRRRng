@@ -9,6 +9,8 @@ const app = express();
 const port = 80;
 
 app.use(express.json());
+app.use(cors());
+
 app.use("/user", userRouter);
 app.use("/auth", authRouter);
 app.use("/car", carRouter);

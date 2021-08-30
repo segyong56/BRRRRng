@@ -1,7 +1,6 @@
 const { User } = require("../models/User");
 const config = require("../config/key");
 const jwt = require("jsonwebtoken");
-const { now } = require("mongoose");
 const { genAccessToken } = require("../utils/tokenGenerator");
 
 const auth = async (req, res, next) => {

@@ -153,7 +153,7 @@ const delMycar = async (req, res) => {
     { _id: id },
     {
       $pull: {
-        carid,
+        carinfo: { carid },
       },
     },
     {

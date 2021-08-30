@@ -4,7 +4,7 @@ const config = require("./config/key");
 const userRouter = require("./routers/userRouter");
 const authRouter = require("./routers/authRouter");
 const carRouter = require("./routers/carRouter");
-// const chargeRouter = require("./routers/chargeRouter");
+const chargeRouter = require("./routers/chargeRouter");
 const app = express();
 const port = 80;
 
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use("/user", userRouter);
 app.use("/auth", authRouter);
 app.use("/car", carRouter);
-// app.use("/charge", chargeRouter);
+app.use("/charge", chargeRouter);
 
 mongoose
   .connect(config.mongoURI, {

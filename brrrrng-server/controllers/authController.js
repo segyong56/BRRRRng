@@ -75,7 +75,6 @@ const login = async (req, res) => {
     );
 
     res.status(200).cookie("accessToken", accessToken, {
-      maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
       domain: "api.brrrrng.ga",
       path: "/",
       sameSite: "none",
@@ -85,7 +84,6 @@ const login = async (req, res) => {
     res
       .status(200)
       .cookie("refreshToken", refreshToken, {
-        maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
         domain: "api.brrrrng.ga",
         path: "/",
         sameSite: "none",
@@ -119,46 +117,30 @@ const logout = async (req, res) => {
       },
     );
 
-    res.status(200).cookie("accessToken", null, {
-      maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
-      domain: "api.brrrrng.ga",
-      path: "/",
-      sameSite: "none",
-      httpOnly: true,
-      secure: true,
+    // res.status(200).cookie("accessToken", null, {
+    //   domain: "api.brrrrng.ga",
+    //   path: "/",
+    //   sameSite: "none",
+    //   httpOnly: true,
+    //   secure: true,
+    // });
+    // res
+    //   .status(200)
+    //   .cookie("refreshToken", null, {
+    //     domain: "api.brrrrng.ga",
+    //     path: "/",
+    //     sameSite: "none",
+    //     httpOnly: true,
+    //     secure: true,
+    //   })
+    res.clearCookie("accessToken");
+    res.clearCookie("refreshToken").json({
+      success: true,
+      message: "logged out successfully",
     });
-    res
-      .status(200)
-      .cookie("refreshToken", null, {
-        maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
-        domain: "api.brrrrng.ga",
-        path: "/",
-        sameSite: "none",
-        httpOnly: true,
-        secure: true,
-      })
-      .json({
-        success: true,
-        message: "logged out successfully",
-      });
   } catch (error) {
     return res.status(400).json(error);
   }
 };
 
-const authtest = (req, res) => {
-  res
-    .cookie("accessToken", req.accessToken, {
-      maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
-      domain: "api.brrrrng.ga",
-      path: "/",
-      sameSite: "none",
-      httpOnly: true,
-      secure: true,
-    })
-    .json({
-      isAuth: true,
-    });
-};
-
-module.exports = { signup, login, logout, authtest };
+module.exports = { signup, login, logout };

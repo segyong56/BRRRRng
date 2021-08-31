@@ -10,9 +10,9 @@ const auth = async (req, res, next) => {
     const accessDecoded = jwt.verify(accessToken, config.accessSecret);
     //토큰이 유효하면 pass
     if (accessDecoded) {
-      //req.cookies.accessToken = accessToken;
+      req.cookies.accessToken = accessToken;
       req.body._id = userData._id;
-      next();
+      return next();
     }
   } catch (error) {
     try {
@@ -32,19 +32,8 @@ const auth = async (req, res, next) => {
             carid: user.carid,
             address: user.address,
           };
+          req.cookies.accessToken = genAccessToken(userData);
           req.body._id = userData._id;
-          const accessToken = genAccessToken(userData);
-          res.clearCookie("accessToken", {
-            domain: "api.brrrrng.ga",
-            path: "/",
-          });
-          res.cookie("accessToken", accessToken, {
-            domain: "api.brrrrng.ga",
-            path: "/",
-            sameSite: "none",
-            httpOnly: true,
-            secure: true,
-          });
           return next();
         }
       }

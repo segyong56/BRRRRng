@@ -74,14 +74,18 @@ const login = async (req, res) => {
       },
     );
 
-    res.status(200).cookie("access", accessToken, {
+    res.status(200).cookie("accessToken", accessToken, {
+      domain: "api.brrrrng.ga",
+      path: "/",
       sameSite: "none",
       httpOnly: true,
       secure: true,
     });
     res
       .status(200)
-      .cookie("refresh", refreshToken, {
+      .cookie("accessToken", refreshToken, {
+        domain: "api.brrrrng.ga",
+        path: "/",
         sameSite: "none",
         httpOnly: true,
         secure: true,

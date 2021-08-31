@@ -132,6 +132,7 @@ const logout = async (req, res) => {
     res.clearCookie("accessToken");
     res.clearCookie("refreshToken").json({
       success: true,
+      isAuth: false,
       message: "logged out successfully",
     });
   } catch (error) {

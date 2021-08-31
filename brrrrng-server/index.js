@@ -14,7 +14,9 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env ? "https://brrrrng.ga" : "http://localhost:3000",
+    origin: process.env.NODE_ENV
+      ? "https://brrrrng.ga"
+      : "http://localhost:3000",
     allowedHeaders: ["Content-Type"],
     credentials: true,
   }),

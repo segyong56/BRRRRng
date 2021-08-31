@@ -129,12 +129,20 @@ const logout = async (req, res) => {
     //     httpOnly: true,
     //     secure: true,
     //   })
-    res.clearCookie("accessToken");
-    res.clearCookie("refreshToken").json({
-      success: true,
-      isAuth: false,
-      message: "logged out successfully",
+    res.clearCookie("accessToken", {
+      domain: "api.brrrrng.ga",
+      path: "/",
     });
+    res
+      .clearCookie("refreshToken", {
+        domain: "api.brrrrng.ga",
+        path: "/",
+      })
+      .json({
+        success: true,
+        isAuth: false,
+        message: "logged out successfully",
+      });
   } catch (error) {
     return res.status(400).json(error);
   }

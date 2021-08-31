@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+<<<<<<< HEAD
 //import { loginRequest, auth } from "../../_actions/authAction";
+=======
+>>>>>>> 21c6f96154ba74d202497b5802a0bd0955ee5bf0
 import "./login.css";
 import axios from "axios";
 

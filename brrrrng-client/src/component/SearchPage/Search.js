@@ -2,12 +2,17 @@ import React, { useState, useEffect } from "react";
 import Header from "./util/Header";
 import "./css/search.css";
 import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
 import cityData from "../../dummydata/cityData";
 import axios from "axios";
 import SearchInput from "./SearchInput";
 import Result from "./Result";
+import { getStations } from '../../_actions/apiAction'
 
 const Search = () => {
+
+  const dispatch = useDispatch();
+  const stations = useSelector(state => state.chargersReducer)
   const [city, setCity] = useState("서울특별시");
   const [districts, setDistricts] = useState([]);
   const [district, setDistrict] = useState("");
@@ -16,6 +21,10 @@ const Search = () => {
   const [hasResult, setHasResult] = useState(false);
   const [chargingStations, setChargingStations] = useState([]);
 
+  useEffect(() => {
+    setChargingStations(stations.chargerStations)
+  }, [stations])
+  
   useEffect(() => {
     cityData.map((data) => {
       if (data.city === city) {
@@ -34,12 +43,11 @@ const Search = () => {
 
     const API_URL = "https://api.brrrrng.ga";
 
-    axios.post(`${API_URL}/charge/search`, data).then((response) => {
-      if (response.data) {
-        setChargingStations(response.data.response.body.items.item);
+    dispatch(getStations(data)).then(response => {
+      if(response.payload){
         setHasResult(true)
       }
-    });
+    })
   };
 
   return (

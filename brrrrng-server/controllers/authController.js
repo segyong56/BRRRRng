@@ -91,6 +91,7 @@ const login = async (req, res) => {
         secure: true,
       })
       .json({
+        userInfo: userData,
         success: true,
         message: "logged in successfully",
         accessToken: accessToken,
@@ -108,27 +109,16 @@ const login = async (req, res) => {
 //로그아웃
 const logout = async (req, res) => {
   try {
+    const { id } = req.params;
     await User.findByIdAndUpdate(
       {
-        _id: req.body._id,
+        _id: id,
       },
       {
         refreshToken: null,
       },
     );
 
-    // res.status(200).cookie("access", null, {
-    //   sameSite: "none",
-    //   httpOnly: true,
-    //   secure: true,
-    // });
-    // res
-    //   .status(200)
-    //   .cookie("refresh", null, {
-    //     sameSite: "none",
-    //     httpOnly: true,
-    //     secure: true,
-    //   })
     res.clearCookie("accessToken", {
       domain: "api.brrrrng.ga",
       path: "/",

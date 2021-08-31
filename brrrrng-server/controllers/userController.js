@@ -3,8 +3,8 @@ const { Car } = require("../models/Car");
 
 const getInfo = async (req, res) => {
   console.log("get Info");
-  const { _id } = req.body;
-  const userInfo = await User.findById({ _id });
+  const { id } = req.params;
+  const userInfo = await User.findById({ _id: id });
   if (!userInfo) {
     return res
       .status(400)
@@ -14,8 +14,8 @@ const getInfo = async (req, res) => {
 };
 
 const delUser = async (req, res) => {
-  const { _id } = req.body;
-  const deleteUser = await User.findByIdAndDelete({ _id });
+  const { id } = req.params;
+  const deleteUser = await User.findByIdAndDelete({ _id: id });
   if (!deleteUser) {
     return res.status(400).json({
       success: false,
@@ -30,10 +30,11 @@ const delUser = async (req, res) => {
 
 const putEdit = async (req, res) => {
   const {
-    body: { username, password, _id },
+    params: { id },
+    body: { username, password },
   } = req;
   const editUser = await User.findByIdAndUpdate(
-    { _id },
+    { _id: id },
     {
       username,
       password,
@@ -56,10 +57,11 @@ const putEdit = async (req, res) => {
 
 const putAddress = async (req, res) => {
   const {
-    body: { address, _id },
+    params: { id },
+    body: { address },
   } = req;
   const putAddr = await User.findByIdAndUpdate(
-    { _id },
+    { _id: id },
     {
       $push: {
         address,
@@ -83,10 +85,11 @@ const putAddress = async (req, res) => {
 
 const delAddress = async (req, res) => {
   const {
-    body: { address, _id },
+    params: { id },
+    body: { address },
   } = req;
   const delAddr = await User.findByIdAndUpdate(
-    { _id },
+    { _id: id },
     {
       $pull: {
         address: address,
@@ -110,13 +113,15 @@ const delAddress = async (req, res) => {
 
 const putMycar = async (req, res) => {
   const {
-    body: { carid, _id },
+    params: { id },
+    body: { carid },
   } = req;
   const getCarInfo = await Car.findOne({
     carid,
   });
+  console.log(getCarInfo);
   const putCar = await User.findByIdAndUpdate(
-    { _id },
+    { _id: id },
     {
       $push: {
         // carid,
@@ -141,10 +146,11 @@ const putMycar = async (req, res) => {
 
 const delMycar = async (req, res) => {
   const {
-    body: { carid, _id },
+    params: { id },
+    body: { carid },
   } = req;
   const delCar = await User.findByIdAndUpdate(
-    { _id },
+    { _id: id },
     {
       $pull: {
         carinfo: { carid },

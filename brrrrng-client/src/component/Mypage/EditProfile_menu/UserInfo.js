@@ -5,19 +5,33 @@ import "../mypage.css";
 import Header from "../util/Header";
 import SideMenu from "../util/SideMenu";
 import { getUserInfo } from '../../../_actions/userAction'
+import axios from 'axios'
 const UserInfo = () => {
 
-  const dispatch = useDispatch();
-
-  const id = "612b0780414f63a162c7653b"
 
 useEffect(() => {
 
 
-  dispatch(getUserInfo(id))
-  
+  const accessToken = localStorage.accessToken
+  axios.get("https://api.brrrrng.ga/user/info", {withCredentials : true}, {
+    headers: {
+      authorization : accessToken
+    }
+  }).then((response) => {
+    console.log(response.data)
+  })
   
 }, [])
+
+const deleteUserHandler = (e) => {
+
+  e.preventDefault();
+
+  axios.delete("https://api.brrrrng.ga/user/delete", {withCredentials: true}).then(response => {
+    console.log(response.data)
+  })
+
+}
 
 
   return (
@@ -51,7 +65,7 @@ useEffect(() => {
               </div>
               <div className="userinfo-btn_area">
                 <div className="deleteBtn">
-                  <button>계정삭제하기</button>
+                  <button onClick={deleteUserHandler}>계정삭제하기</button>
                 </div>
                 <div className="editBtn">
                   <Link to="/mypage/user/edit">

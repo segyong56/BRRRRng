@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Avatar, Popover } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { logoutRequest } from "../../../../_actions/authAction";
+import axios from "axios";
 
 const Rightmenu = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const Rightmenu = () => {
 
   const logoutHandler = (e) => {
     e.preventDefault();
-    dispatch(logoutRequest());
+    axios.get('https://api.brrrrng.ga/auth/logout', {withCredentials: true})
     localStorage.removeItem("accessToken");
     setIsLogout(true)
   };

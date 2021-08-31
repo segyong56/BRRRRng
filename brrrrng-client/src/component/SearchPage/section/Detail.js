@@ -19,31 +19,31 @@ const Detail = ({ setOpenModal, station }) => {
    */
   const convertInfo = (cpStat) => {
     switch (cpStat) {
-      case 1:
+      case "1":
         return {
           class: "far fa-laugh-wink",
           status: "충전가능",
           color: "green",
         };
-      case 2:
+      case "2":
         return {
           class: "far fa-grin-beam-sweat",
           status: "충전중",
           color: "orange",
         };
-      case 3:
+      case "3":
         return {
           class: "far fa-grimace",
           status: "고장/점검",
           color: "red",
         };
-      case 4:
+      case "4":
         return {
           class: "far fa-frown",
           status: "통신장애",
           color: "red",
         };
-      case 5:
+      case "5":
         return {
           class: "fas fa-exclamation-triangle",
           status: "통신미연결",

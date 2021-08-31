@@ -1,57 +1,57 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./css/search.css";
-import Header from "./util/Header";
 import List from "./section/List";
 
-
-import axios from "axios";
 import Kakaomap from "./section/Kakaomap";
 
-const Result = () => {
- 
-  const [chargerStations, setChargerStations] = useState([]);
+const Result = ({ chargingStations, setHasResult }) => {
   const size = [600, 600];
 
-  useEffect(() => {
+  const filtered = chargingStations.map((data) => {
+    return {
+      addr: data.addr._text,
+      chargeTp: data.chargeTp._text,
+      cpStat: data.cpStat._text,
+      cpNm: data.cpNm._text,
+      cpTp: data.cpTp._text,
+      csNm: data.csNm._text,
+      lat: Number(data.lat._text),
+      longi: Number(data.longi._text),
+      statUpdateTime: data.statUpdateDatetime._text,
+    };
+  });
 
-    
-   
-    axios.get("http://localhost:4000/api").then((result) => {
-      console.log(result.data.response.body.items.item);
-      // setChargerStations(result.data.data);
-    });
-  }, []);
+  const backBtnHandler = (e) => {
+    setHasResult(false);
+  };
+  console.log(filtered);
 
   return (
     <div>
-      <Header />
       <section>
         <div className="resultSection_box">
-          <Link to="/search">
-            <div className="backBtn_container">
-              <div>
-                <i className="fas fa-long-arrow-alt-left"></i>
-              </div>
-              <div>
-                <span>돌아가기</span>
-              </div>
+          <div className="backBtn_container" onClick={backBtnHandler}>
+            <div>
+              <i className="fas fa-long-arrow-alt-left"></i>
             </div>
-          </Link>
+            <div>
+              <span>돌아가기</span>
+            </div>
+          </div>
+
           <div className="content_container">
             <div className="map_container">
-              <Kakaomap chargerStations={chargerStations} size={size} />
+              <Kakaomap chargingStations={filtered} size={size} />
             </div>
             <div className="list_container">
               <div className="lists">
-                {chargerStations.map((station, idx) => {
-                  return <List key={idx} station={station}/>;
+                {filtered.map((station, idx) => {
+                  return <List key={idx} station={station} />;
                 })}
               </div>
             </div>
           </div>
         </div>
-        
       </section>
     </div>
   );

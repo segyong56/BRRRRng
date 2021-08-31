@@ -32,8 +32,19 @@ const auth = async (req, res, next) => {
             carid: user.carid,
             address: user.address,
           };
-          res.cookies.accessToken = genAccessToken(userData);
           req.body._id = userData._id;
+          const accessToken = genAccessToken(userData);
+          res.clearCookie("accessToken", {
+            domain: "api.brrrrng.ga",
+            path: "/",
+          });
+          res.cookie("accessToken", accessToken, {
+            domain: "api.brrrrng.ga",
+            path: "/",
+            sameSite: "none",
+            httpOnly: true,
+            secure: true,
+          });
           return next();
         }
       }

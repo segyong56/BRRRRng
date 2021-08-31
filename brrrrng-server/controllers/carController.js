@@ -2,7 +2,7 @@ const { Car } = require("../models/Car");
 
 const carSearch = async (req, res) => {
   const { carname } = req.body;
-  const carInfo = await Car.findOne({ carname });
+  const carInfo = await Car.find({ carname });
   if (!carInfo) {
     return res.status(400).json({
       success: false,

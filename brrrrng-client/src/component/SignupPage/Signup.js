@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signupRequest } from "../../_actions/authAction";
+
 import axios from "axios";
 
 const Signup = () => {
+  
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

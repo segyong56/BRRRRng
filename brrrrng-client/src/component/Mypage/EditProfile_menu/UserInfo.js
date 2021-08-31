@@ -33,6 +33,7 @@ const UserInfo = () => {
           localStorage.removeItem("id")
         }
       });
+     
   };
 
   return (

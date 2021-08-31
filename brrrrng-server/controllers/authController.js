@@ -74,14 +74,14 @@ const login = async (req, res) => {
       },
     );
 
-    res.status(200).cookie("accessToken", accessToken, {
+    res.status(200).cookie("access", accessToken, {
       sameSite: "none",
       httpOnly: true,
       secure: true,
     });
     res
       .status(200)
-      .cookie("refreshToken", refreshToken, {
+      .cookie("refresh", refreshToken, {
         sameSite: "none",
         httpOnly: true,
         secure: true,
@@ -113,24 +113,23 @@ const logout = async (req, res) => {
       },
     );
 
-    res.status(200).cookie("accessToken", null, {
-      sameSite: "none",
-      httpOnly: true,
-      secure: true,
+    // res.status(200).cookie("access", null, {
+    //   sameSite: "none",
+    //   httpOnly: true,
+    //   secure: true,
+    // });
+    // res
+    //   .status(200)
+    //   .cookie("refresh", null, {
+    //     sameSite: "none",
+    //     httpOnly: true,
+    //     secure: true,
+    //   })
+    res.clearCookie("accessToken");
+    res.clearCookie("refreshToken").json({
+      success: true,
+      message: "logged out successfully",
     });
-    res
-      .status(200)
-      .cookie("refreshToken", null, {
-        sameSite: "none",
-        httpOnly: true,
-        secure: true,
-      })
-      // res.clearCookie("accessToken");
-      // res.clearCookie("refreshToken")
-      .json({
-        success: true,
-        message: "logged out successfully",
-      });
   } catch (error) {
     return res.status(400).json(error);
   }

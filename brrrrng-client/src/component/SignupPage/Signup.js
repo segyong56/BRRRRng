@@ -88,7 +88,7 @@ const Signup = () => {
                 </button>
               </div>
               <div>
-                <Link to="/login">you have an account already?</Link>
+                <Link className="login_btn without_btn" id="back"to="/login">you have an account already?</Link>
               </div>
             </li>
           </ul>

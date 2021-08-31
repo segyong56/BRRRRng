@@ -31,9 +31,7 @@ const Login = () => {
 
   return (
     <div className="loginPage">
-      <header className="loginHeader" />
-
-      <section className="loginContainer">
+      <div className="loginContainer">
         <div className="loginImg-box">
           <img id="login" src="../image/login.png" alt="login image" />
         </div>
@@ -66,20 +64,20 @@ const Login = () => {
                 >
                   Login
                 </button>
-                <Link className="loginBtn login_btn" to="/signup" type>
+                <Link className="login_btn signup_btn" to="/signup" type>
                   Sign up
                 </Link>
-                <Link className="loginBtn login_btn" id="without" to="/search">
+                <Link className="login_btn without_btn" id="without" to="/search">
                   Start without Login
                 </Link>
               </div>
             </li>
           </ul>
         </div>
-      </section>
-      <footer id="footer">
-        <img id="drive" src="../image/footer_img.png" alt="drive" />
-      </footer>
+      </div>
+      <div className="carImg-box">
+        <img src="../image/footer_img.png" alt="drive" />
+      </div>
     </div>
   );
 };

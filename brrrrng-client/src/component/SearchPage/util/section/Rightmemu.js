@@ -14,8 +14,9 @@ const Rightmenu = () => {
   const logoutHandler = (e) => {
     e.preventDefault();
     const id = localStorage.id;
-    axios.get(`https://api.brrrrng.ga/auth/${id}/logout`);
-
+    axios.get(`https://api.brrrrng.ga/auth/${id}/logout`, {
+      withCredentials: true,
+    });
     localStorage.removeItem("id");
     setIsLogout(true);
   };

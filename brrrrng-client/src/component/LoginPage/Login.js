@@ -18,11 +18,15 @@ const Login = () => {
       password: password,
     };
 
-    axios.post("https://api.brrrrng.ga/auth/login", data).then((response) => {
-      console.log(response);
-      localStorage.setItem("id", response.data.userInfo._id);
-      history.push("/search");
-    });
+    axios
+      .post("https://api.brrrrng.ga/auth/login", data, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        console.log(response);
+        localStorage.setItem("id", response.data.userInfo._id);
+        history.push("/search");
+      });
   };
 
   return (

@@ -118,7 +118,6 @@ const logout = async (req, res) => {
         refreshToken: null,
       },
     );
-
     res.clearCookie("accessToken", {
       domain: "api.brrrrng.ga",
       path: "/",

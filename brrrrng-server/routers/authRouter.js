@@ -9,7 +9,7 @@ authRouter.post("/signup", signup);
 
 authRouter.post("/login", login);
 
-authRouter.get("/:id/logout", logout);
+authRouter.get("/:id/logout", auth, logout);
 
 authRouter.get("/", auth, authstate);
 

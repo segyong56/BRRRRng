@@ -76,7 +76,7 @@ const login = async (req, res) => {
 
     res.status(200).cookie("accessToken", accessToken, {
       maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
-      domain: "brrrrng.ga",
+      domain: "api.brrrrng.ga",
       path: "/",
       sameSite: "none",
       httpOnly: true,
@@ -86,7 +86,7 @@ const login = async (req, res) => {
       .status(200)
       .cookie("refreshToken", refreshToken, {
         maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
-        domain: "brrrrng.ga",
+        domain: "api.brrrrng.ga",
         path: "/",
         sameSite: "none",
         httpOnly: true,
@@ -121,7 +121,7 @@ const logout = async (req, res) => {
 
     res.status(200).cookie("accessToken", null, {
       maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
-      domain: "brrrrng.ga",
+      domain: "api.brrrrng.ga",
       path: "/",
       sameSite: "none",
       httpOnly: true,
@@ -131,7 +131,7 @@ const logout = async (req, res) => {
       .status(200)
       .cookie("refreshToken", null, {
         maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
-        domain: "brrrrng.ga",
+        domain: "api.brrrrng.ga",
         path: "/",
         sameSite: "none",
         httpOnly: true,
@@ -150,7 +150,7 @@ const authtest = (req, res) => {
   res
     .cookie("accessToken", req.accessToken, {
       maxAge: 1000 * 60 * 60 * 24 * 7, // 7일간 유지
-      domain: "brrrrng.ga",
+      domain: "api.brrrrng.ga",
       path: "/",
       sameSite: "none",
       httpOnly: true,

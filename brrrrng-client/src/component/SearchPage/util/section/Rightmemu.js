@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Avatar, Popover } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import { logoutRequest } from "../../../../_actions/authAction";
+//import { logoutRequest } from "../../../../_actions/authAction";
 import axios from "axios";
 
 const Rightmenu = () => {
@@ -13,12 +13,10 @@ const Rightmenu = () => {
 
   const logoutHandler = (e) => {
     e.preventDefault();
-    axios.get("https://api.brrrrng.ga/auth/logout")
-     
-        localStorage.removeItem("id");
-        setIsLogout(true);
-      
-    
+    axios.get("https://api.brrrrng.ga/auth/logout");
+
+    localStorage.removeItem("id");
+    setIsLogout(true);
   };
 
   const text = <span>BRRRRng</span>;
@@ -26,7 +24,7 @@ const Rightmenu = () => {
     <div>
       <button onClick={logoutHandler}>Logout</button>
       <br />
-      <Link to="/mypage">
+      <Link to='/mypage'>
         <button>my Car</button>
       </Link>
     </div>
@@ -34,15 +32,15 @@ const Rightmenu = () => {
 
   if (localStorage.id && !isLogout) {
     return (
-      <div className="menuBtn-container">
+      <div className='menuBtn-container'>
         <Popover
-          placement="leftTop"
+          placement='leftTop'
           title={text}
           content={content}
-          trigger="click"
+          trigger='click'
         >
           <Avatar
-            size="large"
+            size='large'
             icon={<UserOutlined />}
             style={{ marginRight: "20px" }}
           />
@@ -51,21 +49,21 @@ const Rightmenu = () => {
     );
   } else {
     return (
-      <div className="menuBtn-container">
-        <div className="btn">
-          <Link to="/">
+      <div className='menuBtn-container'>
+        <div className='btn'>
+          <Link to='/'>
             <button>
-              <i className="fas fa-home"></i> Home
+              <i className='fas fa-home'></i> Home
             </button>
           </Link>
         </div>
-        <div className="btn">
-          <Link to="/login">
+        <div className='btn'>
+          <Link to='/login'>
             <button>Login</button>
           </Link>
         </div>
-        <div className="btn">
-          <Link to="/signup">
+        <div className='btn'>
+          <Link to='/signup'>
             <button>Sign up</button>
           </Link>
         </div>

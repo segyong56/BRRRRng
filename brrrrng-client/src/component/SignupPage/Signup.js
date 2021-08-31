@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signupRequest } from "../../_actions/authAction";
+//import { signupRequest } from "../../_actions/authAction";
 import axios from "axios";
 
 const Signup = () => {
@@ -35,70 +35,70 @@ const Signup = () => {
     }
   };
   return (
-    <div className="signupPage">
-      <header className="loginHeader" />
+    <div className='signupPage'>
+      <header className='loginHeader' />
 
-      <section className="signupContainer">
-        <div className="signupImg-box">
-          <img id="create" src="../image/create.png" alt="create image" />
+      <section className='signupContainer'>
+        <div className='signupImg-box'>
+          <img id='create' src='../image/create.png' alt='create image' />
         </div>
-        <div className="signupForm-box">
+        <div className='signupForm-box'>
           <ul>
             <li>
               <input
-                className="loginInput"
-                type="text"
-                placeholder="username"
+                className='loginInput'
+                type='text'
+                placeholder='username'
                 value={name}
                 onChange={(e) => setName(e.currentTarget.value)}
               />
             </li>
             <li>
               <input
-                className="loginInput"
-                type="email"
-                placeholder="email"
+                className='loginInput'
+                type='email'
+                placeholder='email'
                 value={email}
                 onChange={(e) => setEmail(e.currentTarget.value)}
               />
             </li>
             <li>
               <input
-                className="loginInput"
-                type="password"
-                placeholder="password"
+                className='loginInput'
+                type='password'
+                placeholder='password'
                 value={password}
                 onChange={(e) => setPassword(e.currentTarget.value)}
               />
             </li>
             <li>
               <input
-                className="loginInput"
-                type="password"
-                placeholder="repeat your password"
+                className='loginInput'
+                type='password'
+                placeholder='repeat your password'
                 value={passwordConfirm}
                 onChange={(e) => setPasswordConfirm(e.currentTarget.value)}
               />
             </li>
             <li>
-              <div className="loginBtn-group">
+              <div className='loginBtn-group'>
                 <button
-                  className="loginBtn login_btn"
-                  type="submit"
+                  className='loginBtn login_btn'
+                  type='submit'
                   onClick={signupHandler}
                 >
                   Sign up
                 </button>
               </div>
               <div>
-                <Link to="/login">you have an account already?</Link>
+                <Link to='/login'>you have an account already?</Link>
               </div>
             </li>
           </ul>
         </div>
       </section>
       <footer>
-        <img id="drive" src="../image/footer_img.png" alt="drive" />
+        <img id='drive' src='../image/footer_img.png' alt='drive' />
       </footer>
     </div>
   );

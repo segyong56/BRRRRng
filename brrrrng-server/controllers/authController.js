@@ -75,8 +75,6 @@ const login = async (req, res) => {
     );
 
     res.status(200).cookie("accessToken", accessToken, {
-      domain: "api.brrrrng.ga",
-      path: "/",
       sameSite: "none",
       httpOnly: true,
       secure: true,
@@ -84,8 +82,6 @@ const login = async (req, res) => {
     res
       .status(200)
       .cookie("refreshToken", refreshToken, {
-        domain: "api.brrrrng.ga",
-        path: "/",
         sameSite: "none",
         httpOnly: true,
         secure: true,
@@ -117,27 +113,24 @@ const logout = async (req, res) => {
       },
     );
 
-    // res.status(200).cookie("accessToken", null, {
-    //   domain: "api.brrrrng.ga",
-    //   path: "/",
-    //   sameSite: "none",
-    //   httpOnly: true,
-    //   secure: true,
-    // });
-    // res
-    //   .status(200)
-    //   .cookie("refreshToken", null, {
-    //     domain: "api.brrrrng.ga",
-    //     path: "/",
-    //     sameSite: "none",
-    //     httpOnly: true,
-    //     secure: true,
-    //   })
-    res.clearCookie("accessToken");
-    res.clearCookie("refreshToken").json({
-      success: true,
-      message: "logged out successfully",
+    res.status(200).cookie("accessToken", null, {
+      sameSite: "none",
+      httpOnly: true,
+      secure: true,
     });
+    res
+      .status(200)
+      .cookie("refreshToken", null, {
+        sameSite: "none",
+        httpOnly: true,
+        secure: true,
+      })
+      // res.clearCookie("accessToken");
+      // res.clearCookie("refreshToken")
+      .json({
+        success: true,
+        message: "logged out successfully",
+      });
   } catch (error) {
     return res.status(400).json(error);
   }

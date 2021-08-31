@@ -22,6 +22,15 @@ const delUser = async (req, res) => {
       message: "failed to user deleted",
     });
   }
+
+  res.clearCookie("accessToken", {
+    domain: "api.brrrrng.ga",
+    path: "/",
+  });
+  res.clearCookie("refreshToken", {
+    domain: "api.brrrrng.ga",
+    path: "/",
+  });
   return res.status(200).json({
     success: true,
     message: "user is deleted successfully",

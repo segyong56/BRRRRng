@@ -14,11 +14,9 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.NODE_ENV
-      ? "https://brrrrng.ga"
-      : "http://localhost:3000",
-    allowedHeaders: ["Content-Type"],
+    origin: true,
     credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   }),
 );
 

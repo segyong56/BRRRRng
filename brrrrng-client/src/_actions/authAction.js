@@ -20,11 +20,9 @@ export const signupRequest = (data) => {
 };
 
 export const loginRequest = (data) => {
-  const request = axios
-    .post(`${API_URL}/auth/login`, data, { withCredentials: true })
-    .then((response) => {
-      return response.data;
-    });
+  const request = axios.post(`${API_URL}/auth/login`, data).then((response) => {
+    return response.data;
+  });
   console.log(request);
   return {
     type: SUCCESS_LOGIN,

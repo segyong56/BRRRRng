@@ -10,11 +10,11 @@ import {
   REMOVE_FROM_ADDRESTLIST,
 } from "./types";
 
-const API_URL = "http://ec2-52-78-43-100.ap-northeast-2.compute.amazonaws.com"
+const API_URL = "https://api.brrrrng.ga"
 
-export const getUserInfo = (id) => {
+export const getUserInfo = (accessToken) => {
   //ec2-52-78-43-100.ap-northeast-2.compute.amazonaws.com/user/:id/info
-  const userInfo = axios.get(`${API_URL}/${id}/info`).then(response => response.data.userInfo);
+  const userInfo = axios.post(`${API_URL}/info`, accessToken).then(response => response.data.userInfo);
 
   return {
     type: GET_USERINFO,
@@ -24,8 +24,8 @@ export const getUserInfo = (id) => {
   
 };
 
-export const deleteUser = (id) => {
-  const resResult = axios.delete(`http://localhost:4000/user/${id}/delete`).then(response => response.data.success)
+export const deleteUser = (accessToken) => {
+  const resResult = axios.delete(`http://localhost:4000/user/${accessToken}/delete`).then(response => response.data.success)
 
   return {
     type: DELETE_USER,
@@ -33,9 +33,9 @@ export const deleteUser = (id) => {
   }
 }
 
-export const addToMycarList = (id, data) => {
+export const addToMycarList = (accessToken, data) => {
   const resResult = axios
-    .put(`http://localhost:4000/user/${id}/edit`, data)
+    .put(`http://localhost:4000/user/${accessToken}/edit`, data)
     .then((result) => result.data.success);
 
   return {
@@ -44,9 +44,9 @@ export const addToMycarList = (id, data) => {
   };
 };
 
-export const removeFromMycarList = (id, idx) => {
+export const removeFromMycarList = (accessToken, idx) => {
   const resResult = axios
-    .put(`http://localhost:4000/user/${id}/edit`, idx)
+    .put(`http://localhost:4000/user/${accessToken}/edit`, idx)
     .then((result) => result.data.success);
 
   return {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../mypage.css'
 import Header from '../util/Header'
@@ -6,9 +6,21 @@ import SideMenu from '../util/SideMenu'
 import ListTable from './section/ListTable'
 
 import carInfo from '../../../dummydata/carInfo'
-
+import axios from 'axios'
 
 const Carlist = () => {
+
+  const [myCarlist, setMyCarlist] = useState([])
+  useEffect(() => {
+    
+    const id = localStorage.id
+    axios.get(`https://api.brrrrng.ga/user/${id}/info`, {withCredentials: true}).then(response => {
+      console.log(response.data)
+      setMyCarlist(response.data.userInfo.carinfo)
+    })
+
+  }, [])
+
   return (
     <div>
       <Header />
@@ -28,7 +40,7 @@ const Carlist = () => {
                     <div className="carlist-addBtn">
                         <Link to="/mypage/carsearch"><button><i className="fas fa-plus"></i> 추가하기</button></Link>
                     </div>
-                    <ListTable carinfo={carInfo}/>
+                    <ListTable carinfo={myCarlist}/>
                 </div>
 
             </div>

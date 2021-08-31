@@ -9,13 +9,16 @@ import axios from "axios";
 
 const Rightmenu = () => {
   const dispatch = useDispatch();
-  const [isLogout, setIsLogout] = useState(false)
+  const [isLogout, setIsLogout] = useState(false);
 
   const logoutHandler = (e) => {
     e.preventDefault();
-    axios.get('https://api.brrrrng.ga/auth/logout', {withCredentials: true})
-    localStorage.removeItem("accessToken");
-    setIsLogout(true)
+    axios.get("https://api.brrrrng.ga/auth/logout")
+     
+        localStorage.removeItem("id");
+        setIsLogout(true);
+      
+    
   };
 
   const text = <span>BRRRRng</span>;
@@ -29,7 +32,7 @@ const Rightmenu = () => {
     </div>
   );
 
-  if (localStorage.accessToken && !isLogout) {
+  if (localStorage.id && !isLogout) {
     return (
       <div className="menuBtn-container">
         <Popover

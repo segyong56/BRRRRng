@@ -19,8 +19,11 @@ const Main = () => {
           <img src="../image/eco_brng.png" alt="car" />
         </div>
         <div className="driving">
-          <img src="../image/drive.png" alt="driving" />
-          {/* <Link to="/login">Start</Link> */}
+          <img src="../image/driving.png" alt="driving" />
+          <Link to="/login" id="startBtn">LOGIN ➜
+          {/* <img src="../image/startBtn.png" alt="start" />
+          <img src="../image/start_hover.png" alt="start" /> */}
+        </Link>
         </div>
       </div>
       // <div class="sky">

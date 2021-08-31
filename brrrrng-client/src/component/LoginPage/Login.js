@@ -20,9 +20,9 @@ const Login = () => {
     };
 
     
-    axios.post(`https://api.brrrrng.ga/auth/login`, data, {withCredentials: true}).then(response => {
+    axios.post('https://api.brrrrng.ga/auth/login', data).then(response => {
       console.log(response)
-      localStorage.setItem("accessToken", response.data.accessToken)
+      localStorage.setItem("id", response.data.userInfo._id)
       history.push('/search')
     })
     };

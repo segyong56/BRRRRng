@@ -83,7 +83,7 @@ const login = async (req, res) => {
     });
     res
       .status(200)
-      .cookie("accessToken", refreshToken, {
+      .cookie("refreshToken", refreshToken, {
         domain: "api.brrrrng.ga",
         path: "/",
         sameSite: "none",

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux'
-import { signupRequest } from '../../_actions/authAction'
-import axios from 'axios'
+import { useDispatch } from "react-redux";
+import { signupRequest } from "../../_actions/authAction";
+import axios from "axios";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -14,24 +14,26 @@ const Signup = () => {
   const history = useHistory();
 
   const signupHandler = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const data = {
       username: name,
       email: email,
-      password: password
-    }
+      password: password,
+    };
 
-    if(password !== passwordConfirm) {
-      return alert('비밀번호가 틀립니다.')
+    if (password !== passwordConfirm) {
+      return alert("비밀번호가 틀립니다.");
     } else {
-      dispatch(signupRequest(data))
-
-      history.push('/login')
-
+      axios
+        .post("https://api.brrrrng.ga/auth/signup", data)
+        .then((response) => {
+          if (response.data) {
+            history.push("/login");
+          }
+        });
     }
-
-  }
+  };
   return (
     <div className="signupPage">
       <header className="loginHeader" />
@@ -80,11 +82,10 @@ const Signup = () => {
             </li>
             <li>
               <div className="loginBtn-group">
-                <button 
-                className="loginBtn login_btn" 
-                type="submit"
-                onClick={signupHandler}
-                
+                <button
+                  className="loginBtn login_btn"
+                  type="submit"
+                  onClick={signupHandler}
                 >
                   Sign up
                 </button>

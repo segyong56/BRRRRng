@@ -5,16 +5,20 @@ import { Link } from "react-router-dom";
 import { Avatar, Popover } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { logoutRequest } from "../../../../_actions/authAction";
+import axios from "axios";
 
 const Rightmenu = () => {
   const dispatch = useDispatch();
-  const [isLogout, setIsLogout] = useState(false)
+  const [isLogout, setIsLogout] = useState(false);
 
   const logoutHandler = (e) => {
     e.preventDefault();
-    dispatch(logoutRequest());
-    localStorage.removeItem("accessToken");
-    setIsLogout(true)
+    axios.get("https://api.brrrrng.ga/auth/logout")
+     
+        localStorage.removeItem("id");
+        setIsLogout(true);
+      
+    
   };
 
   const text = <span>BRRRRng</span>;
@@ -28,7 +32,7 @@ const Rightmenu = () => {
     </div>
   );
 
-  if (localStorage.accessToken && !isLogout) {
+  if (localStorage.id && !isLogout) {
     return (
       <div className="menuBtn-container">
         <Popover

@@ -1,16 +1,39 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom'
 import "../../mypage.css";
 import Empty from "./Empty";
+import axios from 'axios';
 
 const ResultList = ({ carinfo }) => {
   const [currentIdx, setCurrentIdx] = useState(null);
   const [checked, setChecked] = useState(false);
+  const [checkedCar, setCheckedCar] = useState("")
+
+  const history = useHistory();
  
   const addToMycarlist = (data, idx) => {
     console.log(data)
+    setCheckedCar(data)
     setCurrentIdx(idx);
     setChecked(!checked)
   };
+  console.log(checkedCar.carid)
+  const addTomyCarHandler = (e) => {
+    
+    e.preventDefault();
+
+
+    const data = {
+      carid :checkedCar.carid
+    }
+
+    const id = localStorage.id
+    axios.put(`https://api.brrrrng.ga/user/${id}/mycar`, data).then(response => {
+      if(response.data.success) {
+        history.push('/mypage/carlist')
+      }
+    })
+  }
 
   return (
     <div className="result-box">
@@ -52,7 +75,9 @@ const ResultList = ({ carinfo }) => {
           </div>
           <div className="addBtn-box">
             <div>
-              <button>추가하기</button>
+              <button
+              onClick={addTomyCarHandler}
+              >추가하기</button>
             </div>
           </div>
         </div>

@@ -32,6 +32,7 @@ export const loginRequest = (data) => {
   };
 };
 
+<<<<<<< HEAD
 export const logoutRequest = () => {
   const request = axios
     .get(`${API_URL}/auth/logout`, { withCredentials: true })
@@ -39,6 +40,18 @@ export const logoutRequest = () => {
       console.log(response);
       return response.data;
     });
+=======
+export const logoutRequest = (accessToken) => {
+
+  const request = axios.get(`${API_URL}/auth/logout`,{withCredentials: true}, {
+    headers: {
+      authorization: accessToken
+    }
+  }).then(response => {
+    console.log(response)
+    return response.data
+  })
+>>>>>>> d295a628a7a6a2d2bc4ffd88f6b36c9b8ccfd0d2
 
   return {
     type: SUCCESS_LOGOUT,

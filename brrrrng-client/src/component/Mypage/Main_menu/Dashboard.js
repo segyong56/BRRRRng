@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../mypage.css";
 import Header from "../util/Header";
 import SideMenu from "../util/SideMenu";
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const Dashboard = () => {
+
+
+  useEffect(() => {
+    
+    axios.get("https://api.brrrrng.ga/user/info", {withCredentials: true}).then(response => {
+      console.log(response)
+    })
+
+
+  }, [])
+
+
   return (
     <div>
       <Header />

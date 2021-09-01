@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import "../../css/search.css";
-import { useDispatch } from "react-redux";
+
 import { Link } from "react-router-dom";
 import { Avatar, Popover } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import { logoutRequest } from "../../../../_actions/authAction";
+
 import axios from "axios";
 
 const Rightmenu = () => {
-  const dispatch = useDispatch();
+  
   const [isLogout, setIsLogout] = useState(false);
   const id = localStorage.id 
-  
+
   const logoutHandler = (e) => {
     e.preventDefault();
     axios.get(`https://api.brrrrng.ga/auth/${id}/logout`)

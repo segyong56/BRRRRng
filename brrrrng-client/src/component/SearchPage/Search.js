@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "./util/Header";
+import Footer from "./util/Footer"
 import "./css/search.css";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux'
@@ -54,6 +55,7 @@ const Search = () => {
           address={address}
         />
       </section>
+      <Footer />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import "../mypage.css";
 import Header from "../util/Header";
 import SideMenu from "../util/SideMenu";
 import axios from "axios";
+import Footer from '../util/Footer'
 import cityData from "../../../dummydata/cityData";
 
 const Addrlist = () => {
@@ -166,6 +167,7 @@ const Addrlist = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

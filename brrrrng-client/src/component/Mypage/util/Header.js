@@ -6,14 +6,11 @@ import "../mypage.css";
 import { UserOutlined } from "@ant-design/icons";
 
 const Header = () => {
-  const text = <span>Title</span>;
+  const text = <div><i class="fas fa-bolt" style={{ color: "red"}}></i> BRRRRng</div>;
   const content = (
     <div>
-     <i id="nav-search" className="fas fa-search"></i>
-     <p>Content</p>
- 
-      <p>Content</p>
-     
+     <div className="popover-content" ><i class="fas fa-sign-out-alt"></i> Logout</div>
+     <Link to="/mypage"><div className="popover-content"><i class="fas fa-car-alt"></i>  My Car</div></Link>
     </div>
   );
 
@@ -21,12 +18,12 @@ const Header = () => {
     <>
       <div className="mypage_nav-container">
         <div className="mypage_logo-container">
-          <img src="../image/Logo.png" />
+          <img src="../image/Logo.png" alt="logo"/>
         </div>
         <div className="searchContainer">
           <Link to="/search">
             <div className="searchBar">
-              <i id="nav-search" className="fas fa-search"></i>
+               <span>Go to Search...</span><i id="nav-search" className="fas fa-search"></i>
             </div>
           </Link>
         </div>
@@ -38,7 +35,7 @@ const Header = () => {
             content={content}
             trigger="click"
           >
-            <Avatar size="large" icon={<UserOutlined />} style={{ marginRight : "20px"}} />
+            <Avatar size="large" icon={<UserOutlined />} style={{ marginRight: "30px"}} />
           </Popover>
         </div>
       </div>

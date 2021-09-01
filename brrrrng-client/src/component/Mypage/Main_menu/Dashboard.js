@@ -2,14 +2,20 @@ import React, { useEffect, useState } from "react";
 import "../mypage.css";
 import Header from "../util/Header";
 import SideMenu from "../util/SideMenu";
-import { Link, useHistory  } from "react-router-dom";
-import { useDispatch } from 'react-redux'
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import { getStations } from "../../../_actions/apiAction";
 
+import AddrCard from "./section/AddrCard";
+import CarinfoCard from "./section/CarinfoCard";
 const Dashboard = () => {
   const [userInfo, setUserInfo] = useState("");
 
+  const [address, setAddress] = useState([]);
+  const [carInfo, setCarInfo] = useState([]);
+  const [car, setCar] = useState("");
+  const [addr, setaddr] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -19,7 +25,10 @@ const Dashboard = () => {
       .get(`https://api.brrrrng.ga/user/${id}/info`, { withCredentials: true })
       .then((response) => {
         console.log(response);
-        setUserInfo(response.data.userInfo);
+        setAddress(response.data.userInfo.address);
+        setCarInfo(response.data.userInfo.carinfo);
+        setCar(response.data.userInfo.carinfo[0]);
+        setaddr(response.data.userInfo.address[0]);
       });
   }, []);
 
@@ -27,17 +36,16 @@ const Dashboard = () => {
     e.preventDefault();
 
     const data = {
-      address: userInfo.address[0],
+      address: addr,
     };
 
-    dispatch(getStations(data)).then(response => {
-      if(response.payload){
-        history.push("/search/result")
+    dispatch(getStations(data)).then((response) => {
+      if (response.payload) {
+        history.push("/search/result");
       }
-    })
+    });
   };
 
-  console.log(userInfo);
   return (
     <div>
       <Header />
@@ -48,20 +56,19 @@ const Dashboard = () => {
           </div>
           <div className='contents_box'>
             <div className='wrapper'>
-              <card className='list_card'>
-                <div className='card_title'>Address</div>
+              <card className='list_card1'>
+                <div className='card_title'>My Address</div>
                 <div className='card_content'>
                   <div className='list_box'>
-                    <div id='label' className='label'>
-                      <i
-                        className='fas fa-user-circle fa-5x'
-                        id='user-circle'
-                      ></i>
-                    </div>
+                    <div id='card_img' className='label'></div>
                     <div className='content1'>
                       <table id='dash-table'>
-                        <th id='userInfo'>ADDRESS</th>
-                        <th id='userInfo'>서울특별시 금천구 시흥동 123-1</th>
+                        <span>
+                          <i className='fas fa-map-marker-alt'></i>
+                        </span>
+                        <span> {addr}</span>
+                        {/* <th id="userInfo">ADDRESS</th>
+                        <th id="userInfo">서울특별시 금천구 시흥동 123-1</th> */}
                       </table>
                     </div>
                     <button onClick={searchMyStation} id='dash-addBtn'>
@@ -70,20 +77,20 @@ const Dashboard = () => {
                   </div>
                 </div>
               </card>
-              <card className='list_card'>
+              <card className='list_card1'>
                 <div className='card_title'>My Car INFO</div>
                 <div className='card_content'>
                   <div className='list_box'>
-                    <div id='label' className='label'>
-                      <i className='fas fa-car fa-5x'></i>
-                    </div>
+                    <div id='card_img' className='label'></div>
                     <div className='content1'>
                       <table id='dash-table'>
-                        <th id='userInfo'>My car</th>
-                        <th id='userInfo'>i3</th>
+                        <th id='userInfo'>
+                          <i className='fas fa-car'></i>My car
+                        </th>
+                        <th id='userInfo'>{car.carname}</th>
                         <tr>
                           <th id='userInfo'>Connection Type</th>
-                          <th id='userInfo'>DC콤보(7핀)</th>
+                          <th id='userInfo'>{car.chargetype}</th>
                         </tr>
                       </table>
                     </div>
@@ -91,77 +98,8 @@ const Dashboard = () => {
                   </div>
                 </div>
               </card>
-              <card className='list_card'>
-                <div className='card_title'>즐겨찾기 주소록</div>
-                <div className='card_content'>
-                  <div className='list_box'>
-                    <div className='carlist-table'>
-                      <table id='dash-table'>
-                        <thead id='dash-thead'>
-                          <tr>
-                            <th id='dash-addr-th'>Id</th>
-                            <th id='dash-addr-th'>ADDRESS</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td className='table-addr-d' id='dash-d'>
-                              1
-                            </td>
-                            <td className='table-addr-d' id='dash-td'>
-                              서울특별시 금천구 시흥동 123-1
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                <div className='moreBtn-box'>
-                  <Link to='/mypage/addrlist'>
-                    <button id='moreBtn'>More</button>
-                  </Link>
-                </div>
-              </card>
-              <card className='list_card'>
-                <div className='card_title'>등록된 차 리스트</div>
-                <div className='card_content'>
-                  <div className='list_box'>
-                    <div className='carlist-table'>
-                      <table id='dash-table'>
-                        <thead id='dash-thead'>
-                          <tr>
-                            <th id='dash-th'>CAR</th>
-                            <th id='dash-th'>CONNECTION TYPE</th>
-                            <th id='dash-th'>CHARGE TYPE</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td className='table-d' id='dash-td'>
-                              아이오닉
-                            </td>
-                            <td id='dash-td'>DC콤보(7핀)</td>
-                            <td id='dash-td'>급속</td>
-                          </tr>
-                          <tr>
-                            <td className='table-d' id='dash-td'>
-                              아이오닉
-                            </td>
-                            <td id='dash-td'>DC콤보(7핀)</td>
-                            <td id='dash-td'>완속</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                <div className='moreBtn-box'>
-                  <Link to='/mypage/carlist'>
-                    <button id='moreBtn'>More</button>
-                  </Link>
-                </div>
-              </card>
+              <AddrCard address={address}/>
+              <CarinfoCard carinfo={carInfo} />
             </div>
           </div>
         </div>

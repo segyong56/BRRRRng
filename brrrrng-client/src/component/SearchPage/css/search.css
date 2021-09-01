@@ -1,0 +1,439 @@
+/* header */
+.nav-container {
+  width: 100%;
+  height: 75px;
+  background-color: #46abf4;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuBtn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 24px;
+}
+
+.btn {
+  width: 100px;
+  height: 50px;
+  margin-right: 1em;
+}
+
+.btn > a > button {
+  width: 100px;
+  height: 40px;
+  background: #f9e450;
+  border: 2px solid #1b1b1b;
+  box-sizing: border-box;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 4px 4px 0px #000000;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+
+.btn > a > button:active {
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+.btn > a > button:hover {
+  background-color: #ffbb38;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.logo-container {
+  padding: 1.5rem;
+  width: 180px;
+  height: 80%;
+}
+
+/* section */
+section {
+  width: 100%;
+  height: 90%;
+}
+
+.section_box {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-search {
+  font-size: 30px;
+  color: black;
+}
+
+.section-container {
+  margin-top: 70px;
+  width: 60%;
+  height: 60%;
+  justify-content: center;
+}
+
+.logo_container {
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.logo_container > span {
+  font-size: 35px;
+  font-weight: bold;
+  font-family: "Rampart One", cursive;
+}
+
+.logoImg_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logoImg {
+  width: 120px;
+  height: 120px;
+}
+
+.searchInput_container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.searchInputs {
+  display: flex;
+  justify-content: center;
+  width: 620px;
+  height: 50px;
+  background: #f7f8fa;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.select_box {
+  padding: 7px 7px;
+}
+
+.select_box > select {
+  width: 120px;
+  height: 35px;
+  background: #f7f8fa;
+  border: 1px solid #e0e2e7;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.input_box {
+  padding: 7px 8px;
+}
+
+.input_box > input {
+  width: 250px;
+  height: 35px;
+  background: #f7f8fa;
+  border: 1px solid #e0e2e7;
+  border-radius: 10px;
+}
+
+.searchBtn_box {
+  width: 100px;
+  height: 50px;
+}
+
+.searchBtn_box > button {
+  width: 80px;
+  height: 50px;
+  padding: 0;
+  border-radius: 20px;
+  background: #f9e450;
+  font-weight: bold;
+  border: 2px solid black;
+  font-size: 15px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.searchBtn_box > button:hover {
+  background-color: #ffbb38;
+}
+
+.resultSection_box {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.logo {
+  text-align: center;
+  line-height: 100px;
+  width: 100%;
+  height: 100px;
+}
+
+.logo > span {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Rampart One", cursive;
+}
+
+.content_container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map {
+  width: 90%;
+  height: 85%;
+}
+
+.map > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.list_container {
+  z-index: 9998;
+  position: absolute;
+  top: 75px;
+  right: 0;
+  bottom: 35px;
+  width: 320px;
+  height: 90%;
+  margin: 0 10px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.result {
+  width: 100%;
+  height: 120px;
+  background: #f7f8fa;
+  border: 2px solid lightgray;
+  border-radius: 15px;
+  margin-top: 8px;
+}
+
+.result:hover {
+  background-color: lightgray;
+}
+
+.charger_img {
+  margin-top: 5px;
+  width: 65px;
+  height: 65px;
+}
+
+.charger_img > img {
+  width: 45px;
+  height: 65px;
+  object-fit: contain;
+  padding: 0px 5px 5px 3px;
+}
+
+.charger_description {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: bold;
+  color: grey;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.charger_addr {
+  margin-top: 3px;
+}
+
+.status_sign > span {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Jua", sans-serif;
+}
+
+.charger_addr > span {
+  font-size: 10px;
+  color: black;
+}
+
+.backBtn_container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 160px;
+  height: 50px;
+  left: 0px;
+  top: 150px;
+  box-shadow: 0px 4px 4px #c4c4c4;
+  border: 2px solid black;
+  background: #f9e450;
+  border-radius: 0px 30px 30px 0px;
+  text-align: center;
+  z-index: 3000;
+}
+
+.backBtn_container > div {
+  margin: 7px 7px;
+}
+
+.fa-long-arrow-alt-left {
+  line-height: 60px;
+  font-size: 35px;
+  color: black;
+}
+
+.backBtn_container > div > span {
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}
+
+.backBtn_container:hover {
+  background-color: #ffbb38;
+  cursor: pointer;
+}
+
+/* modal 창 */
+
+.uk-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 15px 15px;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 1;
+  transition: opacity 0.15s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uk-modal-dialog {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 500px;
+  height: 600px;
+  border-radius: 20px;
+  border: 2px solid gray;
+  max-width: calc(100% - 0.01px) !important;
+  background: rgba(255, 255, 255, 0.858);
+  z-index: 999999;
+  opacity: 1;
+}
+
+.charger_description_container {
+  display: flex;
+}
+
+.charger_status_sign {
+  text-align: center;
+}
+
+.charger_status_sign > span {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: "Jua", sans-serif;
+}
+
+.D_icon {
+  font-size: 20px;
+}
+.D_text {
+  margin: 15px;
+  text-align: left;
+}
+
+.detail-description-box {
+  height: 130px;
+}
+.detail-description {
+  width: 80%;
+  height: 100px;
+  margin-left: 30px;
+}
+
+.fa-charging-station {
+  font-size: 20px;
+}
+
+.modal_map_container {
+  margin: 25px;
+  width: 100%;
+}
+
+.map_modal {
+  width: 60%;
+  border-radius: 10px;
+}
+
+
+.getDirectBtn_container {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.getDirectBtn > a > button {
+  width: 200px;
+  height: 40px;
+  background: #f9e450;
+  border: 2px solid #1b1b1b;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 3px 3px 0px #000000;
+  cursor: pointer;
+}
+
+.getDirectBtn > a > button:hover {
+  background: #ffbb38;
+}
+
+.close-btn {
+  text-align: right;
+  margin: 10px;
+}
+.fa-times {
+  text-align: right;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+#infowindow {
+  font-family: "Fredoka One", cursive !important;
+  font-size: 17px;
+  border-radius: 20px;
+}

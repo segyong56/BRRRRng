@@ -32,7 +32,7 @@ const Dashboard = () => {
 
     dispatch(getStations(data)).then(response => {
       if(response.payload){
-        history.push("/search")
+        history.push("/search/result")
       }
     })
   };

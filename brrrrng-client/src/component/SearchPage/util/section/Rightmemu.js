@@ -10,6 +10,7 @@ import axios from "axios";
 const Rightmenu = () => {
   const dispatch = useDispatch();
   const [isLogout, setIsLogout] = useState(false);
+  const id = localStorage.id;
 
   const logoutHandler = (e) => {
     e.preventDefault();

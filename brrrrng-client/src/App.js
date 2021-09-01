@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import Auth from './auth'
 import LandingPage from "./component/MainPage/Main";
 import LoginPage from "./component/LoginPage/Login";
 import SignupPage from "./component/SignupPage/Signup";
@@ -19,11 +19,11 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route path="/login" component={LoginPage} exact />
+          <Route path="/login"  component={LoginPage} exact />
           <Route path="/signup" component={SignupPage} exact />
           <Route path="/search" component={SearchPage} exact />
           <Route path="/search/result" component={ResultPage} exact />
-          <Route path="/mypage" component={MyPage} exact />
+          <Route path="/mypage" component={Auth(MyPage, true)} exact />
           <Route path="/mypage/carlist" component={CarListPage} exact />
           <Route path="/mypage/carsearch" component={CarSearchPage} exact />
           <Route path="/mypage/addrlist" component={AddrListPage} exact />

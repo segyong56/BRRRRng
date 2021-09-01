@@ -1,10 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../mypage.css";
 import Header from "../util/Header";
 import SideMenu from "../util/SideMenu";
-import { Link } from 'react-router-dom'
+import { Link, useHistory  } from "react-router-dom";
+import { useDispatch } from 'react-redux'
+import axios from "axios";
+import { getStations } from "../../../_actions/apiAction";
 
 const Dashboard = () => {
+  const [userInfo, setUserInfo] = useState("");
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    const id = localStorage.id;
+    axios
+      .get(`https://api.brrrrng.ga/user/${id}/info`, { withCredentials: true })
+      .then((response) => {
+        console.log(response);
+        setUserInfo(response.data.userInfo);
+      });
+  }, []);
+
+  const searchMyStation = (e) => {
+    e.preventDefault();
+
+    const data = {
+      address: userInfo.address[0],
+    };
+
+    dispatch(getStations(data)).then(response => {
+      if(response.payload){
+        history.push("/search/result")
+      }
+    })
+  };
+  
   return (
     <div>
       <Header />
@@ -15,11 +47,11 @@ const Dashboard = () => {
           </div>
           <div className="contents_box">
             <div className="wrapper">
-              <card className="list_card">
+              <card className="list_card1">
                 <div className="card_title">Address</div>
                 <div className="card_content">
                   <div className="list_box">
-                    <div id="label" className="label">
+                    <div id="card_img" className="label">
                       <i
                         className="fas fa-user-circle fa-5x"
                         id="user-circle"
@@ -27,19 +59,21 @@ const Dashboard = () => {
                     </div>
                     <div className="content1">
                       <table id="dash-table">
-                        <th id="userInfo">ADDRESS</th>
-                        <th id="userInfo">서울특별시 금천구 시흥동 123-1</th>
+                        <span>ADDRESS</span>
+                        <span> 서울특별시 금천구 시흥동 123-1</span>
+                        {/* <th id="userInfo">ADDRESS</th>
+                        <th id="userInfo">서울특별시 금천구 시흥동 123-1</th> */}
                       </table>
                     </div>
                     <button id="dash-addBtn">나의 충전소 위치 찾기</button>
                   </div>
                 </div>
               </card>
-              <card className="list_card">
+              <card className="list_card2">
                 <div className="card_title">My Car INFO</div>
                 <div className="card_content">
                   <div className="list_box">
-                    <div id="label" className="label">
+                    <div id="card_img" className="label">
                       <i className="fas fa-car fa-5x"></i>
                     </div>
                     <div className="content1">
@@ -56,7 +90,7 @@ const Dashboard = () => {
                   </div>
                 </div>
               </card>
-              <card className="list_card">
+              <card className="list_card3">
                 <div className="card_title">즐겨찾기 주소록</div>
                 <div className="card_content">
                   <div className="list_box">
@@ -86,7 +120,7 @@ const Dashboard = () => {
                   <Link to="/mypage/addrlist"><button id="moreBtn">More</button></Link>
                 </div>
               </card>
-              <card className="list_card">
+              <card className="list_card4">
                 <div className="card_title">등록된 차 리스트</div>
                 <div className="card_content">
                   <div className="list_box">

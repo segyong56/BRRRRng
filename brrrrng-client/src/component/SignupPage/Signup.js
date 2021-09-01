@@ -5,8 +5,6 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 
 const Signup = () => {
-  
-  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,14 +36,12 @@ const Signup = () => {
   };
   return (
     <div className="signupPage">
-      <header className="loginHeader" />
-
-      <section className="signupContainer">
+      <div className="signupContainer">
         <div className="signupImg-box">
-          <img id="create" src="../image/create.png" alt="create image" />
+          <img id="login" src="../image/create.png" alt="create image" />
         </div>
-        <div className="signupForm-box">
-          <ul>
+        <div className="loginForm-box">
+          <ul className="loginForm">
             <li>
               <input
                 className="loginInput"
@@ -93,15 +89,15 @@ const Signup = () => {
                 </button>
               </div>
               <div>
-                <Link to="/login">you have an account already?</Link>
+                <Link className="login_btn without_btn" id="back"to="/login">you have an account already?</Link>
               </div>
             </li>
           </ul>
         </div>
-      </section>
-      <footer>
-        <img id="drive" src="../image/footer_img.png" alt="drive" />
-      </footer>
+      </div>
+      <div className="carImg-box">
+        <img src="../image/footer_img.png" alt="drive" />
+      </div>
     </div>
   );
 };

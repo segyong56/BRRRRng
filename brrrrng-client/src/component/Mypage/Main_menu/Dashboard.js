@@ -36,8 +36,7 @@ const Dashboard = () => {
       }
     })
   };
-
-  console.log(userInfo);
+  
   return (
     <div>
       <Header />
@@ -46,22 +45,24 @@ const Dashboard = () => {
           <div className='sideMenu_box'>
             <SideMenu />
           </div>
-          <div className='contents_box'>
-            <div className='wrapper'>
-              <card className='list_card'>
-                <div className='card_title'>Address</div>
-                <div className='card_content'>
-                  <div className='list_box'>
-                    <div id='label' className='label'>
+          <div className="contents_box">
+            <div className="wrapper">
+              <card className="list_card1">
+                <div className="card_title">Address</div>
+                <div className="card_content">
+                  <div className="list_box">
+                    <div id="card_img" className="label">
                       <i
                         className='fas fa-user-circle fa-5x'
                         id='user-circle'
                       ></i>
                     </div>
-                    <div className='content1'>
-                      <table id='dash-table'>
-                        <th id='userInfo'>ADDRESS</th>
-                        <th id='userInfo'>서울특별시 금천구 시흥동 123-1</th>
+                    <div className="content1">
+                      <table id="dash-table">
+                        <span>ADDRESS</span>
+                        <span> 서울특별시 금천구 시흥동 123-1</span>
+                        {/* <th id="userInfo">ADDRESS</th>
+                        <th id="userInfo">서울특별시 금천구 시흥동 123-1</th> */}
                       </table>
                     </div>
                     <button onClick={searchMyStation} id='dash-addBtn'>
@@ -70,12 +71,12 @@ const Dashboard = () => {
                   </div>
                 </div>
               </card>
-              <card className='list_card'>
-                <div className='card_title'>My Car INFO</div>
-                <div className='card_content'>
-                  <div className='list_box'>
-                    <div id='label' className='label'>
-                      <i className='fas fa-car fa-5x'></i>
+              <card className="list_card2">
+                <div className="card_title">My Car INFO</div>
+                <div className="card_content">
+                  <div className="list_box">
+                    <div id="card_img" className="label">
+                      <i className="fas fa-car fa-5x"></i>
                     </div>
                     <div className='content1'>
                       <table id='dash-table'>
@@ -91,13 +92,13 @@ const Dashboard = () => {
                   </div>
                 </div>
               </card>
-              <card className='list_card'>
-                <div className='card_title'>즐겨찾기 주소록</div>
-                <div className='card_content'>
-                  <div className='list_box'>
-                    <div className='carlist-table'>
-                      <table id='dash-table'>
-                        <thead id='dash-thead'>
+              <card className="list_card3">
+                <div className="card_title">즐겨찾기 주소록</div>
+                <div className="card_content">
+                  <div className="list_box">
+                    <div className="carlist-table">
+                      <table id="dash-table">
+                        <thead id="dash-thead">
                           <tr>
                             <th id='dash-addr-th'>Id</th>
                             <th id='dash-addr-th'>ADDRESS</th>
@@ -117,19 +118,17 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-                <div className='moreBtn-box'>
-                  <Link to='/mypage/addrlist'>
-                    <button id='moreBtn'>More</button>
-                  </Link>
+                <div className="moreBtn-box">
+                  <Link to="/mypage/addrlist"><button id="moreBtn">More</button></Link>
                 </div>
               </card>
-              <card className='list_card'>
-                <div className='card_title'>등록된 차 리스트</div>
-                <div className='card_content'>
-                  <div className='list_box'>
-                    <div className='carlist-table'>
-                      <table id='dash-table'>
-                        <thead id='dash-thead'>
+              <card className="list_card4">
+                <div className="card_title">등록된 차 리스트</div>
+                <div className="card_content">
+                  <div className="list_box">
+                    <div className="carlist-table">
+                      <table id="dash-table">
+                        <thead id="dash-thead">
                           <tr>
                             <th id='dash-th'>CAR</th>
                             <th id='dash-th'>CONNECTION TYPE</th>

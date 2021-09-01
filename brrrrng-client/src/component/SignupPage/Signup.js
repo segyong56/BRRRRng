@@ -48,45 +48,42 @@ const Signup = () => {
       email: email,
       password: password,
     };
-    if(!name && !email && !password) {
-      setOpen(true)
-      setErrorMessage("이름을 입력하세요")
+    if (!name && !email && !password) {
+      setOpen(true);
+      setErrorMessage("이름을 입력하세요");
     } else if (!name) {
-      setOpen(true)
-      setErrorMessage("이름을 입력하세요")
+      setOpen(true);
+      setErrorMessage("이름을 입력하세요");
     } else if (!email) {
-      setOpen(true)
-      setErrorMessage("이메일을 입력하세요")
-    } else if (!password){
-      setOpen(true)
-      setErrorMessage("비밀번호를 입력하세요")
+      setOpen(true);
+      setErrorMessage("이메일을 입력하세요");
+    } else if (!password) {
+      setOpen(true);
+      setErrorMessage("비밀번호를 입력하세요");
     } else if (password !== passwordConfirm) {
-      setOpen(true)
+      setOpen(true);
       setErrorMessage("비밀번호가 틀립니다.");
     } else {
-  
-        dispatch(signupRequest(data))
-          .then((response) => {
-            if (response.payload.data) {
-              history.push("/login");
-            } else if (response.payload.error){
-              console.log("errors")
-            } else {
-              setOpen(true)
-              setErrorMessage("회원가입에 실패했습니다.")
-            }
-          });
-      
+      dispatch(signupRequest(data)).then((response) => {
+        if (response.payload.data) {
+          history.push("/login");
+        } else if (response.payload.error) {
+          console.log("errors");
+        } else {
+          setOpen(true);
+          setErrorMessage("회원가입에 실패했습니다.");
+        }
+      });
     }
   };
   return (
-    <div className="signupPage">
-      <div className="signupContainer">
-        <div className="signupImg-box">
-          <img id="login" src="../image/create.png" alt="create image" />
+    <div className='signupPage'>
+      <div className='signupContainer'>
+        <div className='signupImg-box'>
+          <img id='login' src='../image/create.png' alt='create image' />
         </div>
-        <div className="loginForm-box">
-          <ul className="loginForm">
+        <div className='loginForm-box'>
+          <ul className='loginForm'>
             <li>
               <input
                 className='loginInput'
@@ -134,31 +131,22 @@ const Signup = () => {
                 </button>
               </div>
               <div>
-<<<<<<< HEAD
-                <Link to='/login'>you have an account already?</Link>
-=======
-                <Link className="login_btn without_btn" id="back"to="/login">you have an account already?</Link>
->>>>>>> e4dfb83d22839827682a0d8d5db6a3c85d489908
+                <Link className='login_btn without_btn' id='back' to='/login'>
+                  you have an account already?
+                </Link>
               </div>
             </li>
           </ul>
         </div>
-<<<<<<< HEAD
         <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
           <Alert onClose={handleClose} severity='error'>
             {errorMessage}
           </Alert>
         </Snackbar>
-      </section>
+      </div>
       <footer>
         <img id='drive' src='../image/footer_img.png' alt='drive' />
       </footer>
-=======
-      </div>
-      <div className="carImg-box">
-        <img src="../image/footer_img.png" alt="drive" />
-      </div>
->>>>>>> e4dfb83d22839827682a0d8d5db6a3c85d489908
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import React from 'react'
-
+import "../css/search.css"
 const Footer = () => {
   return (
-    <div>
+    <div className="road-container">
       
     </div>
   )

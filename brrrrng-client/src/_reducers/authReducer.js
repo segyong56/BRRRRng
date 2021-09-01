@@ -2,7 +2,7 @@ import {
   SUCCESS_SIGNUP,
   SUCCESS_LOGIN,
   SUCCESS_LOGOUT,
-  AUTH_USER,
+  ERROR_OCCURRED
 } from "../_actions/types";
 
 export default function auth (state = {}, action) {
@@ -21,10 +21,10 @@ export default function auth (state = {}, action) {
       return {
         ...state
       };
-    case AUTH_USER:
+    case ERROR_OCCURRED:
       return {
         ...state,
-        isAuth: action.payload
+        error: action.payload
       };
     default:
       return state;

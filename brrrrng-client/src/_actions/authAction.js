@@ -2,58 +2,53 @@ import {
   SUCCESS_SIGNUP,
   SUCCESS_LOGIN,
   SUCCESS_LOGOUT,
-  AUTH_USER,
+  ERROR_OCCURRED
 } from "./types.js";
 
 import axios from "axios";
-const API_URL = "https://api.brrrrng.ga"
+const API_URL = "https://api.brrrrng.ga";
 
-export const signupRequest = (data) => {
+export const signupRequest = async (data) => {
+  try {
+    const request = await axios.post(`${API_URL}/auth/signup`, data);
 
-  const request = axios.post(`${API_URL}/auth/signup`, data).then(response => response.data)
-
-  return {
-    type: SUCCESS_SIGNUP,
-    payload: request
-  }
-}
-
-export const loginRequest = (data) => {
-
-  const request = axios.post(`${API_URL}/auth/login`, data).then(response => {
-    return response.data
-  })
-console.log(request)
-  return {
-    type: SUCCESS_LOGIN,
-    payload: request
-  }
-
-}
-
-export const logoutRequest = (accessToken) => {
-
-  const request = axios.get(`${API_URL}/auth/logout`,{withCredentials: true}, {
-    headers: {
-      authorization: accessToken
+    return {
+      type: SUCCESS_SIGNUP,
+      payload: request,
+    };
+  } catch (error) {
+    return {
+      type: ERROR_OCCURRED,
+      payload: error
     }
-  }).then(response => {
-    console.log(response)
-    return response.data
-  })
+  }
+};
+
+export const loginRequest = async (data) => {
+  try {
+    const request = await axios.post(`${API_URL}/auth/login`, data);
+    return {
+      type: SUCCESS_LOGIN,
+      payload: request,
+    };
+  } catch (error){
+    return {
+      type: ERROR_OCCURRED,
+      payload: error
+    }
+  }
+};
+
+export const logoutRequest = (id) => {
+  const request = axios
+    .get(`${API_URL}/auth/${id}/logout`, { withCredentials: true })
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    });
 
   return {
     type: SUCCESS_LOGOUT,
-    payload: request
-  }
-}
-
-export const auth = () => {
-
-  const request = axios.get(`${API_URL}/auth/authtest`).then(response => response.data)
-
-  return {
-    type: AUTH_USER,
-    payload: request
-  }
-}
+    payload: request,
+  };
+};

@@ -45,28 +45,22 @@ const ResultList = ({ carinfo }) => {
             <table>
               <thead>
                 <tr>
-                  <th>
-                    <input type="checkbox" />
-                  </th>
+                 
                   <th>차명</th>
                   <th>커넥트 타입</th>
-                  <th>급속 / 완속</th>
+                  <th>브랜드명</th>
                 </tr>
               </thead>
               <tbody>
                 {carinfo.map((data, idx) => {
                   return (
-                    <tr key={idx} onClick={() => addToMycarlist(data, idx)}>
-                      <td>
-                        {currentIdx === idx && checked ? (
-                          <input type="checkbox" id={currentIdx} checked />
-                        ) : (
-                          <input type="checkbox" />
-                        )}
-                      </td>
+                    <tr 
+                    key={idx} 
+                    className={currentIdx === idx ? "check" : ""}
+                    onClick={() => addToMycarlist(data, idx)}>
                       <td className="table-d">{data.carname}</td>
-                      <td>{data.connect_type}</td>
-                      <td>{data.manufacturer}</td>
+                      <td>{data.chargetype}</td>
+                      <td>{data.maker}</td>
                     </tr>
                   );
                 })}

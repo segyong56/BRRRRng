@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../css/search.css";
 import RightMenu from './section/Rightmemu'
 const Header = () => {

@@ -1,10 +1,10 @@
 import React from 'react'
-import '../mypage.css'
+import "../mypage.css"
 
 const Footer = () => {
   return (
-    <div className="load-container">
-      <img src="../image/road.png" />
+    <div className="road-container">
+      
     </div>
   )
 }

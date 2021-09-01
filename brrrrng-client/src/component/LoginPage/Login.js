@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginRequest, auth } from "../../_actions/authAction";
 import "./login.css";
+import axios from 'axios'
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,16 +18,15 @@ const Login = () => {
       password: password,
     };
 
-    dispatch(loginRequest(data)).then(response => {
-      if (response.payload.success) {
-        console.log(response.payload);
-       localStorage.setItem('accessToken', response.payload.accessToken) 
-        history.push("/search");
+    
+    axios.post('https://api.brrrrng.ga/auth/login', data).then(response => {
+      console.log(response)
+      localStorage.setItem("id", response.data.userInfo._id)
+      history.push('/search')
+    })
+    };
 
-      }
-    });
-
-  };
+  
 
   return (
     <div className="loginPage">

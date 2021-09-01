@@ -1,41 +1,46 @@
-import React, { useEffect } from 'react';
-import { auth } from './_actions/authAction'
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+export default function checkAuth(
+  SpecificComponent,
+  option,
+  adminRoute = null
+) {
+  function AuthenticationCheck(props) {
+    const history = useHistory();
+    useEffect(() => {
+      try {
+        async function response() {
+          const responses = await axios.get("https://api.brrrrng.ga/auth", {
+            withCredentials: true,
+          });
 
-export default function checkAuth (SpecificComponent, option, adminRoute = null) {
-    function AuthenticationCheck(props) {
+          if (!responses.data.isAuth) {
+            if (option) {
+              props.history.push("/login");
+            }
 
-        let user = useSelector(state => state.user);
-        const dispatch = useDispatch();
+            //true인경우 로그인이 되어있는 상태
+          } else {
+            //Logged in Status, but Try to go into log in page
+            if (option === true) {
+              props.history.push("/mypage");
+            }
+            if (option === false) {
+              props.history.push("/");
+            }
+          }
+        }
+      } catch (error) {
+        history.push("/login");
+        localStorage.removeItem("accessToken");
+      }
 
-        useEffect(() => {
-            //To know my current status, send Auth request 
-            dispatch(auth()).then(response => {
-                //Not Loggined in Status 
-                if (!response.payload.isAuth) {
-                    if (option) {
-                        props.history.push('/login')
-                    }
-                    //Loggined in Status 
-                } else {
-                    //supposed to be Admin page, but not admin person wants to go inside
-                    if (adminRoute && !response.payload.isAdmin) {
-                        props.history.push('/mypage')
-                    }
-                    //Logged in Status, but Try to go into log in page 
-                    else {
-                        if (option === false) {
-                            props.history.push('/')
-                        }
-                    }
-                }
-            })
+    
+    }, [SpecificComponent]);
 
-        }, [])
-
-        return (
-            <SpecificComponent {...props} user={user} />
-        )
-    }
-    return AuthenticationCheck
+    return <SpecificComponent {...props} />;
+  }
+  return AuthenticationCheck;
 }

@@ -1,10 +1,81 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "../mypage.css";
 import Header from "../util/Header";
 import SideMenu from "../util/SideMenu";
+import axios from "axios";
+import cityData from "../../../dummydata/cityData";
 
 const Addrlist = () => {
-  // const [] = useState()
+  const [city, setCity] = useState("서울특별시");
+  const [districts, setDistricts] = useState([]);
+  const [district, setDistrict] = useState("");
+
+  const [address, setAddress] = useState("");
+  const [userInfo, setUserInfo] = useState([]);
+
+  const id = localStorage.id;
+  const history = useHistory();
+  useEffect(() => {
+    cityData.map((data) => {
+      if (data.city === city) {
+        setDistricts(data.district);
+      }
+    });
+  }, [city]);
+
+  useEffect(() => {
+    axios
+      .get(`https://api.brrrrng.ga/user/${id}/info`, { withCredentials: true })
+      .then((response) => {
+        setUserInfo(response.data.userInfo.address);
+        console.log(response.data.userInfo);
+      });
+  }, [userInfo]);
+
+  const citySelectHandler = (e) => {
+    setCity(e.currentTarget.value);
+  };
+  const districtSelectHandler = (e) => {
+    setDistrict(e.currentTarget.value);
+  };
+
+  const addressHandler = (e) => {
+    setAddress(e.currentTarget.value);
+  };
+
+  const addToaddrListHandler = (e) => {
+    e.preventDefault();
+
+    const data = {
+      address: `${city} ${district} ${address}`,
+    };
+
+    axios
+      .put(`https://api.brrrrng.ga/user/${id}/address`, data)
+      .then((response) => {
+        console.log(response.data);
+        if (response.data.success) {
+          history.push("/mypage/addrlist");
+        }
+      });
+  };
+
+  const deleteMyaddrHandler = (address) => {
+    console.log(typeof carid)
+    const id = localStorage.id
+
+    const data = {
+      data : {
+        address : address
+      }
+    }
+
+    axios.delete(`https://api.brrrrng.ga/user/${id}/address`, data).then(response => {
+      console.log(response)
+    })
+
+  }
 
   return (
     <div>
@@ -22,20 +93,39 @@ const Addrlist = () => {
               <div className="searchInput_container">
                 <div className="searchInputs">
                   <div className="select_box">
-                    <select name="" id="">
-                      <option value="1">시도</option>
+                    <select name="" id="" onChange={citySelectHandler}>
+                      {cityData.map((data, idx) => {
+                        return (
+                          <option key={idx} value={data.city}>
+                            {data.city}
+                          </option>
+                        );
+                      })}
                     </select>
                   </div>
                   <div className="select_box">
-                    <select name="" id="">
-                      <option value="1">시군구</option>
+                    <select name="" id="" onChange={districtSelectHandler}>
+                      {districts.map((data, idx) => {
+                        return (
+                          <option key={idx} value={data}>
+                            {data}
+                          </option>
+                        );
+                      })}
+                      ;
                     </select>
                   </div>
+
                   <div className="input_box">
-                    <input type="text" placeholder="상세주소를 입력하세요" />
+                    <input
+                      type="text"
+                      placeholder="상세주소를 입력하세요"
+                      value={address}
+                      onChange={addressHandler}
+                    />
                   </div>
                   <div className="searchBtn_box">
-                    <button>ADD</button>
+                    <button onClick={addToaddrListHandler}>ADD</button>
                   </div>
                 </div>
               </div>
@@ -51,13 +141,22 @@ const Addrlist = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td id="dash-d">1</td>
-                          <td id="dash-td">서울특별시 금천구 시흥동 123-1</td>
-                          <td>
-                            <i className="fas fa-trash-alt"></i>
-                          </td>
-                        </tr>
+                        {userInfo.map((data, idx) => {
+                          return (
+                            <tr key={idx+1}>
+                              <td id="dash-d">{idx+1}</td>
+                              <td id="dash-td">
+                                {data}
+                              </td>
+                              <td>
+                                <i 
+                                className="fas fa-trash-alt"
+                                onClick={() => deleteMyaddrHandler(data)}
+                                ></i>
+                              </td>
+                            </tr>
+                          );
+                        })}
                       </tbody>
                     </table>
                   </div>

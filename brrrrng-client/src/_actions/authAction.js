@@ -31,9 +31,13 @@ console.log(request)
 
 }
 
-export const logoutRequest = () => {
+export const logoutRequest = (accessToken) => {
 
-  const request = axios.get(`${API_URL}/auth/logout`,{withCredentials: true}).then(response => {
+  const request = axios.get(`${API_URL}/auth/logout`,{withCredentials: true}, {
+    headers: {
+      authorization: accessToken
+    }
+  }).then(response => {
     console.log(response)
     return response.data
   })

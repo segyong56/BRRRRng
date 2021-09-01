@@ -5,7 +5,7 @@ import { message, Alert } from "antd";
 import Header from "../util/Header";
 import SideMenu from "../util/SideMenu";
 import ResultList from "./section/ResultList";
-
+import axios from "axios";
 import carInfo from "../../../dummydata/carInfo";
 
 const CarSearch = () => {
@@ -22,21 +22,26 @@ const CarSearch = () => {
     e.preventDefault();
 
     if (carname === "") {
-      setErrorMessage(true)
+      setErrorMessage(true);
     } else {
-      let filtered = carInfo.filter((data) => {
-        if (data.carname === carname) {
-          return data;
-        }
-      });
+      const data = {
+        carname: carname,
+      };
+      axios
+        .post("https://api.brrrrng.ga/car/search", data, {
+          withCredentials: true,
+        })
+        .then((response) => {
+          console.log(response)
+          setFilteredCar(response.data.carInfo);
+        });
 
-      setFilteredCar(filtered);
       setShowResult(true);
     }
   };
 
   setTimeout(() => {
-    setErrorMessage(false)
+    setErrorMessage(false);
   }, 1500);
 
   console.log(filteredCar);
@@ -50,7 +55,11 @@ const CarSearch = () => {
           </div>
           <div className="contents_box">
             <div className="search-box">
-              {errorMessage ? <Alert message="차명을 입력하세요." type="error" showIcon /> : ""}
+              {errorMessage ? (
+                <Alert message="차명을 입력하세요." type="error" showIcon />
+              ) : (
+                ""
+              )}
               <div className="title-area">
                 <span>
                   <i className="fas fa-search"></i> 내 차 검색{" "}

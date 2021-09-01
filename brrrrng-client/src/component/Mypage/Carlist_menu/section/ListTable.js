@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../mypage.css";
+import axios from 'axios'
 
 const ListTable = ({ carinfo }) => {
-  console.log(carinfo);
+  
+  const deleteMycarHandler = (carid) => {
+    console.log(typeof carid)
+    const id = localStorage.id
+
+    const data = {
+      data : {
+        carid : carid
+      }
+    }
+
+    axios.delete(`https://api.brrrrng.ga/user/${id}/mycar`, data).then(response => {
+      console.log(response)
+    })
+
+  }
+
   return (
     <>
       <div className="carlist-table">
@@ -29,7 +46,10 @@ const ListTable = ({ carinfo }) => {
                   <td>{data.connect_type}</td>
                   <td>{data.manufacturer}</td>
                   <td>
-                    <i className="fas fa-trash-alt"></i>
+                    <i 
+                    className="fas fa-trash-alt"
+                    onClick={() => deleteMycarHandler(data.carid)}
+                    ></i>
                   </td>
                 </tr>
               );

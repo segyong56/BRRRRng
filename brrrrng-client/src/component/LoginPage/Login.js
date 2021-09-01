@@ -45,6 +45,7 @@ const Login = () => {
       email: email,
       password: password,
     };
+<<<<<<< HEAD
     if (!email && !password) {
       setOpen(true);
     } else if (!email) {
@@ -77,6 +78,22 @@ const Login = () => {
       <section className='loginContainer'>
         <div className='loginImg-box'>
           <img id='login' src='../image/login.png' alt='login' />
+=======
+
+    
+    axios.post('https://api.brrrrng.ga/auth/login', data).then(response => {
+      console.log(response)
+      localStorage.setItem("id", response.data.userInfo._id)
+      history.push('/search')
+    })
+    };
+
+  return (
+    <div className="loginPage">
+      <div className="loginContainer">
+        <div className="loginImg-box">
+          <img id="login" src="../image/login.png" alt="login image" />
+>>>>>>> e4dfb83d22839827682a0d8d5db6a3c85d489908
         </div>
         <div className='loginForm-box'>
           <ul className='loginForm'>
@@ -107,16 +124,24 @@ const Login = () => {
                 >
                   Login
                 </button>
+<<<<<<< HEAD
                 <Link className='loginBtn login_btn' to='/signup' type>
                   Sign up
                 </Link>
                 <Link className='loginBtn login_btn' id='without' to='/search'>
+=======
+                <Link className="login_btn signup_btn" to="/signup" type>
+                  Sign up
+                </Link>
+                <Link className="login_btn without_btn" id="without" to="/search">
+>>>>>>> e4dfb83d22839827682a0d8d5db6a3c85d489908
                   Start without Login
                 </Link>
               </div>
             </li>
           </ul>
         </div>
+<<<<<<< HEAD
         <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
           <Alert onClose={handleClose} severity='error'>
             {errorMessage}
@@ -126,6 +151,12 @@ const Login = () => {
       <footer id='footer'>
         <img id='drive' src='../image/footer_img.png' alt='drive' />
       </footer>
+=======
+      </div>
+      <div className="carImg-box">
+        <img src="../image/footer_img.png" alt="drive" />
+      </div>
+>>>>>>> e4dfb83d22839827682a0d8d5db6a3c85d489908
     </div>
   );
 };

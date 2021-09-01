@@ -80,15 +80,13 @@ const Signup = () => {
     }
   };
   return (
-    <div className='signupPage'>
-      <header className='loginHeader' />
-
-      <section className='signupContainer'>
-        <div className='signupImg-box'>
-          <img id='create' src='../image/create.png' alt='create' />
+    <div className="signupPage">
+      <div className="signupContainer">
+        <div className="signupImg-box">
+          <img id="login" src="../image/create.png" alt="create image" />
         </div>
-        <div className='signupForm-box'>
-          <ul>
+        <div className="loginForm-box">
+          <ul className="loginForm">
             <li>
               <input
                 className='loginInput'
@@ -136,11 +134,16 @@ const Signup = () => {
                 </button>
               </div>
               <div>
+<<<<<<< HEAD
                 <Link to='/login'>you have an account already?</Link>
+=======
+                <Link className="login_btn without_btn" id="back"to="/login">you have an account already?</Link>
+>>>>>>> e4dfb83d22839827682a0d8d5db6a3c85d489908
               </div>
             </li>
           </ul>
         </div>
+<<<<<<< HEAD
         <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
           <Alert onClose={handleClose} severity='error'>
             {errorMessage}
@@ -150,6 +153,12 @@ const Signup = () => {
       <footer>
         <img id='drive' src='../image/footer_img.png' alt='drive' />
       </footer>
+=======
+      </div>
+      <div className="carImg-box">
+        <img src="../image/footer_img.png" alt="drive" />
+      </div>
+>>>>>>> e4dfb83d22839827682a0d8d5db6a3c85d489908
     </div>
   );
 };

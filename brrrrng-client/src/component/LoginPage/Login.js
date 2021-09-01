@@ -26,8 +26,6 @@ const Login = () => {
     })
     };
 
-  
-
   return (
     <div className="loginPage">
       <div className="loginContainer">

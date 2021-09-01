@@ -5,8 +5,6 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 
 const Signup = () => {
-  
-  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

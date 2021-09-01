@@ -70,7 +70,7 @@ const Kakaomap = ({ chargingStations }) => {
       var markerImage = new kakao.maps.MarkerImage(
         imageSrc,
         imageSize,
-        imageOption
+        imageOption,
       );
 
       chargingStations.forEach((e) => {
@@ -80,10 +80,20 @@ const Kakaomap = ({ chargingStations }) => {
           image: markerImage,
         });
 
-        const curStatus = convertInfo(e.cpStat)
+        const curStatus = convertInfo(e.cpStat);
         const infowindow = new kakao.maps.InfoWindow({
           content: `<div id="infowindow">${curStatus.status}</div>`,
         });
+
+        // var content = `<div id="infowindow">${curStatus.status}</div>`;
+
+        // // 커스텀 오버레이를 생성합니다
+        // var customOverlay = new kakao.maps.CustomOverlay({
+        //   map: map,
+        //   position: position,
+        //   content: content,
+        //   yAnchor: 1,
+        // });
 
         infowindow.open(map, markers);
       });
@@ -97,7 +107,7 @@ const Kakaomap = ({ chargingStations }) => {
   return (
     <div>
       <div
-        id="Mymap"
+        id='Mymap'
         style={{
           width: "100vw",
           height: "90vh",

@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./css/search.css";
 import List from "./section/List";
-
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Kakaomap from "./section/Kakaomap";
+import Header from './util/Header'
 
-const Result = ({ chargingStations, setHasResult }) => {
+const Result = () => {
+
   const size = [600, 600];
+  const history = useHistory();
+  const stations = useSelector(({ chargersReducer }) => chargersReducer.chargerStations);
+  
 
-  const filtered = chargingStations.map((data) => {
+  const filtered = stations.map((data) => {
     return {
       addr: data.addr._text,
       chargeTp: data.chargeTp._text,
@@ -22,29 +28,31 @@ const Result = ({ chargingStations, setHasResult }) => {
   });
 
   const backBtnHandler = (e) => {
-    setHasResult(false);
+    e.preventDefault();
+    history.push('/search')
   };
   console.log(filtered);
 
   return (
     <div>
+       <Header />
       <section>
-        <div className="resultSection_box">
-          <div className="backBtn_container" onClick={backBtnHandler}>
+        <div className='resultSection_box'>
+          <div className='backBtn_container' onClick={backBtnHandler}>
             <div>
-              <i className="fas fa-long-arrow-alt-left"></i>
+              <i className='fas fa-long-arrow-alt-left'></i>
             </div>
             <div>
               <span>돌아가기</span>
             </div>
           </div>
 
-          <div className="content_container">
-            <div className="map_container">
+          <div className='content_container'>
+            <div className='map_container'>
               <Kakaomap chargingStations={filtered} size={size} />
             </div>
-            <div className="list_container">
-              <div className="lists">
+            <div className='list_container'>
+              <div className='lists'>
                 {filtered.map((station, idx) => {
                   return <List key={idx} station={station} />;
                 })}

@@ -93,8 +93,8 @@ const Addrlist = () => {
                 <i className='fas fa-clipboard-list'></i> 즐겨찾는 주소 리스트
               </div>
               <div className='searchInput_container'>
-                <div className='searchInputs'>
-                  <div className='select_box'>
+                <div className='addr_searchInputs'>
+                  <div className='addr_select_box'>
                     <select name='' id='' onChange={citySelectHandler}>
                       {cityData.map((data, idx) => {
                         return (
@@ -105,7 +105,7 @@ const Addrlist = () => {
                       })}
                     </select>
                   </div>
-                  <div className='select_box'>
+                  <div className='addr_select_box'>
                     <select name='' id='' onChange={districtSelectHandler}>
                       {districts.map((data, idx) => {
                         return (

@@ -15,23 +15,28 @@ const Rightmenu = () => {
   const logoutHandler = (e) => {
     e.preventDefault();
     axios.get(`https://api.brrrrng.ga/auth/${id}/logout`)
-     
         localStorage.removeItem("id");
         setIsLogout(true);
-      
-    
   };
 
-  const text = <span>BRRRRng</span>;
+  const text = (
+    <div>
+      <i class='fas fa-bolt' style={{ color: "red" }}></i> BRRRRng
+    </div>
+  );
   const content = (
     <div>
-      <button onClick={logoutHandler}>Logout</button>
-      <br />
-      <Link to="/mypage">
-        <button>my Car</button>
+      <div className='popover-content' onClick={logoutHandler}>
+        <i class='fas fa-sign-out-alt'></i> Logout
+      </div>
+      <Link to='/mypage'>
+        <div className='popover-content'>
+          <i class='fas fa-car-alt'></i> My Car
+        </div>
       </Link>
     </div>
   );
+  
 
   if (localStorage.id && !isLogout) {
     return (

@@ -60,14 +60,6 @@ const SearchInput = ({ searchHandler, setAddress, setDistrict, setCity, district
                 ;
               </select>
             </div>
-            <div className="input_box">
-              <input
-                onChange={addressHandler}
-                value={address}
-                type="text"
-                placeholder="상세주소를 입력하세요"
-              />
-            </div>
             <div className="searchBtn_box">
               <button onClick={searchInputHandler}>
                 <i className="fas fa-search"></i>

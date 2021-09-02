@@ -54,6 +54,12 @@ img {
   height: 80%;
 }
 
+.popover-content {
+  font-size: 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
 /* section */
 section {
   width: 100%;
@@ -113,7 +119,7 @@ section {
 .searchInputs {
   display: flex;
   justify-content: center;
-  width: 620px;
+  width:520px;
   height: 50px;
   background: #f7f8fa;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
@@ -125,7 +131,7 @@ section {
 }
 
 .select_box > select {
-  width: 120px;
+  width: 150px;
   height: 35px;
   background: #f7f8fa;
   border: 1px solid #e0e2e7;

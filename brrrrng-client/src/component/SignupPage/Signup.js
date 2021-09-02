@@ -77,18 +77,18 @@ const Signup = () => {
     }
   };
   return (
-    <div className='signupPage'>
-      <div className='signupContainer'>
-        <div className='signupImg-box'>
-          <img id='login' src='../image/create.png' alt='create image' />
+    <div className="signupPage">
+      <div className="signupContainer">
+        <div className="signupImg-box">
+          <img id="login" src="../image/create.png" alt="create image" />
         </div>
-        <div className='loginForm-box'>
-          <ul className='loginForm'>
+        <div className="loginForm-box">
+          <ul className="loginForm">
             <li>
               <input
-                className='loginInput'
-                type='text'
-                placeholder='username'
+                className="loginInput"
+                type="text"
+                placeholder="username"
                 value={name}
                 onChange={(e) => setName(e.currentTarget.value)}
               />
@@ -104,24 +104,24 @@ const Signup = () => {
             </li>
             <li>
               <input
-                className='loginInput'
-                type='password'
-                placeholder='password'
+                className="loginInput"
+                type="password"
+                placeholder="password"
                 value={password}
                 onChange={(e) => setPassword(e.currentTarget.value)}
               />
             </li>
             <li>
               <input
-                className='loginInput'
-                type='password'
-                placeholder='repeat your password'
+                className="loginInput"
+                type="password"
+                placeholder="repeat your password"
                 value={passwordConfirm}
                 onChange={(e) => setPasswordConfirm(e.currentTarget.value)}
               />
             </li>
             <li>
-              <div className='loginBtn-group'>
+            <div className='loginBtn-group'>
                 <button
                   className='loginBtn login_btn'
                   type='submit'
@@ -138,15 +138,15 @@ const Signup = () => {
             </li>
           </ul>
         </div>
-        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
-          <Alert onClose={handleClose} severity='error'>
-            {errorMessage}
-          </Alert>
-        </Snackbar>
       </div>
-      <div className="carIng-box">
-        <img src='../image/footer_img.png' alt='drive' />
+      <div className="carImg-box">
+        <img src="../image/footer_img.png" alt="drive" />
       </div>
+      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity='error'>
+          {errorMessage}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

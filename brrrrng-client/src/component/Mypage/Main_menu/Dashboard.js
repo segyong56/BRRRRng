@@ -45,6 +45,8 @@ const Dashboard = () => {
       }
     });
   };
+
+
   return (
     <div>
       <Header />
@@ -65,9 +67,7 @@ const Dashboard = () => {
                         <span>
                           <i className='fas fa-map-marker-alt'></i>
                         </span>
-                        <span> {addr}</span>
-                        {/* <th id="userInfo">ADDRESS</th>
-                        <th id="userInfo">서울특별시 금천구 시흥동 123-1</th> */}
+                        <span> {addr ? addr : ""}</span>
                       </table>
                     </div>
                     <button onClick={searchMyStation} id='dash-addBtn'>
@@ -86,10 +86,10 @@ const Dashboard = () => {
                         <th id='userInfo'>
                           <i className='fas fa-car'></i>My car
                         </th>
-                        <th id='userInfo'>{car.carname}</th>
+                        <th id='userInfo'>{car ? car.carname : ""}</th>
                         <tr>
                           <th id='userInfo'>Connection Type</th>
-                          <th id='userInfo'>{car.chargetype}</th>
+                          <th id='userInfo'>{car ? car.chargetype : ""}</th>
                         </tr>
                       </table>
                     </div>
@@ -97,8 +97,8 @@ const Dashboard = () => {
                   </div>
                 </div>
               </card>
-              <AddrCard address={address}/>
-              <CarinfoCard carinfo={carInfo} />
+              <AddrCard address={address.length !== 0 ? address : ""}/>
+              <CarinfoCard carinfo={carInfo.length !== 0 ? carInfo : ""} />
             </div>
           </div>
         </div>

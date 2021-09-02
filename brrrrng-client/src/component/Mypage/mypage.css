@@ -503,6 +503,30 @@ thead {
   background-color: #e5e5e5 !important;
   text-align: center;
 }
+
+.addr_searchInputs {
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  background: #f7f8fa;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.addr_select_box {
+  padding: 7px 7px;
+}
+
+.addr_select_box > select {
+  width: 130px;
+  height: 35px;
+  background: #f7f8fa;
+  border: 1px solid #e0e2e7;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
 /* user profile page */
 
 .userinfo_box {

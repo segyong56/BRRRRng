@@ -75,6 +75,8 @@ const login = async (req, res) => {
     );
 
     res.status(200).cookie("accessToken", accessToken, {
+      domain: "api.brrrrng.ga",
+      path: "/",
       sameSite: "none",
       httpOnly: true,
       secure: true,
@@ -82,11 +84,14 @@ const login = async (req, res) => {
     res
       .status(200)
       .cookie("refreshToken", refreshToken, {
+        domain: "api.brrrrng.ga",
+        path: "/",
         sameSite: "none",
         httpOnly: true,
         secure: true,
       })
       .json({
+        userInfo: userData,
         success: true,
         message: "logged in successfully",
         accessToken: accessToken,
@@ -104,29 +109,27 @@ const login = async (req, res) => {
 //로그아웃
 const logout = async (req, res) => {
   try {
+    const { id } = req.params;
     await User.findByIdAndUpdate(
       {
-        _id: req.body._id,
+        _id: id,
       },
       {
         refreshToken: null,
       },
     );
-
-    res.status(200).cookie("accessToken", null, {
-      sameSite: "none",
-      httpOnly: true,
-      secure: true,
+    res.clearCookie("accessToken", {
+      domain: "api.brrrrng.ga",
+      path: "/",
     });
     res
-      .status(200)
-      .cookie("refreshToken", null, {
-        sameSite: "none",
-        httpOnly: true,
-        secure: true,
+      .clearCookie("refreshToken", {
+        domain: "api.brrrrng.ga",
+        path: "/",
       })
       .json({
         success: true,
+        isAuth: false,
         message: "logged out successfully",
       });
   } catch (error) {
@@ -134,16 +137,4 @@ const logout = async (req, res) => {
   }
 };
 
-const authtest = (req, res) => {
-  res
-    .cookie("accessToken", req.accessToken, {
-      sameSite: "none",
-      httpOnly: true,
-      secure: true,
-    })
-    .json({
-      isAuth: true,
-    });
-};
-
-module.exports = { signup, login, logout, authtest };
+module.exports = { signup, login, logout };

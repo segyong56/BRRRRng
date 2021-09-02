@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-const APP_KEY = "0772f8af10f44f88c04f91a27955a812";
+const APP_KEY = "647c91279e09da99c7737a8714b35d1e";
 
 const Map = ({ lat, longi }) => {
- 
   const createMap = () => {
     const script = document.createElement("script");
     script.async = true;
@@ -17,29 +16,34 @@ const Map = ({ lat, longi }) => {
           level: 3,
         };
         const createdMap = new kakao.maps.Map(container, options);
-        
-        const markerPosition = new kakao.maps.LatLng(lat, longi)
+
+        const markerPosition = new kakao.maps.LatLng(lat, longi);
 
         const marker = new kakao.maps.Marker({
-          position: markerPosition
+          position: markerPosition,
         });
 
-        marker.setMap(createdMap)
+        marker.setMap(createdMap);
       });
     };
   };
-  
 
   useEffect(() => {
     createMap();
- 
   }, []);
 
-  
   return (
     <>
-      <div className="map_modal">
-        <div id="map" style={{ width: '450px', height: "250px" , borderRadius: "10px", border: "2px solid lightgrey" }}></div>
+      <div className='map_modal'>
+        <div
+          id='map'
+          style={{
+            width: "450px",
+            height: "250px",
+            borderRadius: "10px",
+            border: "2px solid lightgrey",
+          }}
+        ></div>
       </div>
     </>
   );

@@ -54,6 +54,12 @@ img {
   height: 80%;
 }
 
+.popover-content {
+  font-size: 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
 /* section */
 section {
   width: 100%;
@@ -113,7 +119,7 @@ section {
 .searchInputs {
   display: flex;
   justify-content: center;
-  width: 620px;
+  width:520px;
   height: 50px;
   background: #f7f8fa;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
@@ -125,7 +131,7 @@ section {
 }
 
 .select_box > select {
-  width: 120px;
+  width: 150px;
   height: 35px;
   background: #f7f8fa;
   border: 1px solid #e0e2e7;
@@ -138,7 +144,7 @@ section {
 }
 
 .input_box > input {
-  width: 250px;
+  width: 200px;
   height: 35px;
   background: #f7f8fa;
   border: 1px solid #e0e2e7;
@@ -308,6 +314,7 @@ section {
   font-weight: bold;
   font-size: 20px;
   color: black;
+  font-family: "Jua", sans-serif;
 }
 
 .backBtn_container:hover {
@@ -433,7 +440,27 @@ section {
 
 
 #infowindow {
-  font-family: "Fredoka One", cursive !important;
-  font-size: 17px;
+  font-family: "Cafe24Ssurround";
+  font-size: 20px;
   border-radius: 20px;
+  position: relative;
+  color: green;
+  text-shadow: greenyellow;
+  top: -130px;
+  left: -50px;
 }
+
+.ant-popover {
+  z-index: 999999999 !important;
+}
+
+.road-container {
+  background: url('./long_road.png');
+  width: 100%;
+  height: 50px;
+  display: block;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  background-repeat: repeat-x;
+} 

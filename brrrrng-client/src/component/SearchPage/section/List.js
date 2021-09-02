@@ -48,28 +48,7 @@ const List = ({ station }) => {
 
   const currentStatus = convertInfo(station.cpStat);
 
-  const cpTpInfo = (cpTp) => {
-    switch (cpTp) {
-      case 1:
-        return "B타입(5핀)";
-      case 2:
-        return "C타입(5핀)";
-      case 3:
-        return "BC타입(5핀)";
-      case 4:
-        return "BC타입(7핀)";
-      case 5:
-        return "DC차데모6";
-      case 6:
-        return "AC3상";
-      case 7:
-        return "DC콤보";
-      case 8:
-        return "DC차데모+DC콤보";
-      default:
-        return "";
-    }
-  };
+  
 
   return (
     <>

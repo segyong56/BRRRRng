@@ -2,13 +2,7 @@
 export const SUCCESS_SIGNUP = 'success_signup'
 export const SUCCESS_LOGIN = 'success_login'
 export const SUCCESS_LOGOUT = 'success_logout'
-export const AUTH_USER = 'auth_user'
-
-
-
-
-
-
+export const ERROR_OCCURRED = "error_occurred"
 
 export const GET_USERINFO = "get_userinfo";
 export const DELETE_USER = "delete_user"

@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import "../../css/search.css";
-import { useDispatch } from "react-redux";
+
 import { Link } from "react-router-dom";
 import { Avatar, Popover } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-//import { logoutRequest } from "../../../../_actions/authAction";
 import axios from "axios";
 
 const Rightmenu = () => {
-  const dispatch = useDispatch();
   const [isLogout, setIsLogout] = useState(false);
   const id = localStorage.id;
 
@@ -22,13 +20,20 @@ const Rightmenu = () => {
     setIsLogout(true);
   };
 
-  const text = <span>BRRRRng</span>;
+  const text = (
+    <div>
+      <i class='fas fa-bolt' style={{ color: "red" }}></i> BRRRRng
+    </div>
+  );
   const content = (
     <div>
-      <button onClick={logoutHandler}>Logout</button>
-      <br />
+      <div className='popover-content' onClick={logoutHandler}>
+        <i class='fas fa-sign-out-alt'></i> Logout
+      </div>
       <Link to='/mypage'>
-        <button>my Car</button>
+        <div className='popover-content'>
+          <i class='fas fa-car-alt'></i> My Car
+        </div>
       </Link>
     </div>
   );

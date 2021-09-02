@@ -4,9 +4,9 @@ import "../mypage.css";
 import Header from "../util/Header";
 import SideMenu from "../util/SideMenu";
 import axios from "axios";
-import Footer from '../util/Footer'
+import Footer from "../util/Footer";
 import cityData from "../../../dummydata/cityData";
-
+import AddrEmpty from "./section/AddrEmpty";
 const Addrlist = () => {
   const [city, setCity] = useState("서울특별시");
   const [districts, setDistricts] = useState([]);
@@ -63,38 +63,39 @@ const Addrlist = () => {
   };
 
   const deleteMyaddrHandler = (address) => {
-    console.log(typeof carid)
-    const id = localStorage.id
+    console.log(typeof carid);
+    const id = localStorage.id;
 
     const data = {
-      data : {
-        address : address
-      }
-    }
+      data: {
+        address: address,
+      },
+    };
 
-    axios.delete(`https://api.brrrrng.ga/user/${id}/address`, data).then(response => {
-      console.log(response)
-    })
-
-  }
+    axios
+      .delete(`https://api.brrrrng.ga/user/${id}/address`, data)
+      .then((response) => {
+        console.log(response);
+      });
+  };
 
   return (
     <div>
       <Header />
       <section>
-        <div className="mypage_section_box">
-          <div className="sideMenu_box">
+        <div className='mypage_section_box'>
+          <div className='sideMenu_box'>
             <SideMenu />
           </div>
-          <div className="contents_box">
-            <div className="addrlist_content">
-              <div className="carlist-title">
-                <i className="fas fa-clipboard-list"></i> 즐겨찾는 주소 리스트
+          <div className='contents_box'>
+            <div className='addrlist_content'>
+              <div className='carlist-title'>
+                <i className='fas fa-clipboard-list'></i> 즐겨찾는 주소 리스트
               </div>
-              <div className="searchInput_container">
-                <div className="searchInputs">
-                  <div className="select_box">
-                    <select name="" id="" onChange={citySelectHandler}>
+              <div className='searchInput_container'>
+                <div className='addr_searchInputs'>
+                  <div className='addr_select_box'>
+                    <select name='' id='' onChange={citySelectHandler}>
                       {cityData.map((data, idx) => {
                         return (
                           <option key={idx} value={data.city}>
@@ -104,8 +105,8 @@ const Addrlist = () => {
                       })}
                     </select>
                   </div>
-                  <div className="select_box">
-                    <select name="" id="" onChange={districtSelectHandler}>
+                  <div className='addr_select_box'>
+                    <select name='' id='' onChange={districtSelectHandler}>
                       {districts.map((data, idx) => {
                         return (
                           <option key={idx} value={data}>
@@ -117,50 +118,52 @@ const Addrlist = () => {
                     </select>
                   </div>
 
-                  <div className="input_box">
+                  <div className='input_box'>
                     <input
-                      type="text"
-                      placeholder="상세주소를 입력하세요"
+                      type='text'
+                      placeholder='상세주소를 입력하세요'
                       value={address}
                       onChange={addressHandler}
                     />
                   </div>
-                  <div className="searchBtn_box">
+                  <div className='searchBtn_box'>
                     <button onClick={addToaddrListHandler}>ADD</button>
                   </div>
                 </div>
               </div>
-              <div className="addrlist_container">
-                <div className="addrlist-box">
-                  <div className="addrlist-table">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Id</th>
-                          <th>ADDRESS</th>
-                          <th>OPTIONS</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {userInfo.map((data, idx) => {
-                          return (
-                            <tr key={idx+1}>
-                              <td id="dash-d">{idx+1}</td>
-                              <td id="dash-td">
-                                {data}
-                              </td>
-                              <td>
-                                <i 
-                                className="fas fa-trash-alt"
-                                onClick={() => deleteMyaddrHandler(data)}
-                                ></i>
-                              </td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
+              <div className='addrlist_container'>
+                <div className='addrlist-box'>
+                  {userInfo.length === 0 ? (
+                    <AddrEmpty />
+                  ) : (
+                    <div className='addrlist-table'>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Id</th>
+                            <th>ADDRESS</th>
+                            <th>OPTIONS</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {userInfo.map((data, idx) => {
+                            return (
+                              <tr key={idx + 1}>
+                                <td id='dash-d'>{idx + 1}</td>
+                                <td id='dash-td'>{data}</td>
+                                <td>
+                                  <i
+                                    className='fas fa-trash-alt'
+                                    onClick={() => deleteMyaddrHandler(data)}
+                                  ></i>
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

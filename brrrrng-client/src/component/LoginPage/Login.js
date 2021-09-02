@@ -5,7 +5,6 @@ import { loginRequest } from "../../_actions/authAction";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 import { makeStyles } from "@material-ui/core/styles";
-
 import "./login.css";
 
 const Alert = (props) => {
@@ -38,7 +37,6 @@ const Login = () => {
 
     setOpen(false);
   };
-
   const loginHandler = (e) => {
     e.preventDefault();
     const data = {
@@ -74,7 +72,7 @@ const Login = () => {
     <div className='loginPage'>
       <div className='loginContainer'>
         <div className='loginImg-box'>
-          <img id='login' src='../image/login.png' alt='login' />
+          <img id='login' src='../image/login.png' alt='login image' />
         </div>
         <div className='loginForm-box'>
           <ul className='loginForm'>
@@ -119,15 +117,15 @@ const Login = () => {
             </li>
           </ul>
         </div>
-        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
-          <Alert onClose={handleClose} severity='error'>
-            {errorMessage}
-          </Alert>
-        </Snackbar>
       </div>
-      <div className='carIng-box'>
+      <div className='carImg-box'>
         <img src='../image/footer_img.png' alt='drive' />
       </div>
+      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity='error'>
+          {errorMessage}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

@@ -138,15 +138,15 @@ const Signup = () => {
             </li>
           </ul>
         </div>
-        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
-          <Alert onClose={handleClose} severity='error'>
-            {errorMessage}
-          </Alert>
-        </Snackbar>
       </div>
-      <div className='carIng-box'>
+      <div className='carImg-box'>
         <img src='../image/footer_img.png' alt='drive' />
       </div>
+      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity='error'>
+          {errorMessage}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

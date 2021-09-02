@@ -71,64 +71,66 @@ const Login = () => {
   };
 
   return (
-    <div className='loginPage'>
-      <div className='loginContainer'>
-        <div className='loginImg-box'>
-          <img id='login' src='../image/login.png' alt='login' />
+  
+      <div className='loginPage'>
+        <div className='loginContainer'>
+          <div className='loginImg-box'>
+            <img id='login' src='../image/login.png' alt='login' />
+          </div>
+          <div className='loginForm-box'>
+            <ul className='loginForm'>
+              <li>
+                <input
+                  className='loginInput'
+                  type='email'
+                  placeholder='email'
+                  value={email}
+                  onChange={(e) => setEmail(e.currentTarget.value)}
+                />
+              </li>
+              <li>
+                <input
+                  className='loginInput'
+                  type='password'
+                  placeholder='pw'
+                  value={password}
+                  onChange={(e) => setPassword(e.currentTarget.value)}
+                />
+              </li>
+              <li>
+                <div className='loginBtn-group'>
+                  <button
+                    className='loginBtn login_btn'
+                    type='submit'
+                    onClick={loginHandler}
+                  >
+                    Login
+                  </button>
+                  <Link className='login_btn signup_btn' to='/signup' type>
+                    Sign up
+                  </Link>
+                  <Link
+                    className='login_btn without_btn'
+                    id='without'
+                    to='/search'
+                  >
+                    Start without Login
+                  </Link>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity='error'>
+              {errorMessage}
+            </Alert>
+          </Snackbar>
         </div>
-        <div className='loginForm-box'>
-          <ul className='loginForm'>
-            <li>
-              <input
-                className='loginInput'
-                type='email'
-                placeholder='email'
-                value={email}
-                onChange={(e) => setEmail(e.currentTarget.value)}
-              />
-            </li>
-            <li>
-              <input
-                className='loginInput'
-                type='password'
-                placeholder='pw'
-                value={password}
-                onChange={(e) => setPassword(e.currentTarget.value)}
-              />
-            </li>
-            <li>
-              <div className='loginBtn-group'>
-                <button
-                  className='loginBtn login_btn'
-                  type='submit'
-                  onClick={loginHandler}
-                >
-                  Login
-                </button>
-                <Link className='login_btn signup_btn' to='/signup' type>
-                  Sign up
-                </Link>
-                <Link
-                  className='login_btn without_btn'
-                  id='without'
-                  to='/search'
-                >
-                  Start without Login
-                </Link>
-              </div>
-            </li>
-          </ul>
+        <div className='carIng-box'>
+          <img src='../image/footer_img.png' alt='drive' />
         </div>
-        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
-          <Alert onClose={handleClose} severity='error'>
-            {errorMessage}
-          </Alert>
-        </Snackbar>
       </div>
-      <footer id='footer'>
-        <img id='drive' src='../image/footer_img.png' alt='drive' />
-      </footer>
-    </div>
+    
   );
 };
 

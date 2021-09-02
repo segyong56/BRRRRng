@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from 'react-router-dom'
 const CarinfoCard = ({ carinfo }) => {
 
+ 
+
   return (
     <card className='list_card3'>
                 <div className='card_title'>등록된 차 리스트</div>
@@ -17,7 +19,7 @@ const CarinfoCard = ({ carinfo }) => {
                           </tr>
                         </thead>
                         <tbody>
-                          {carinfo.map((data, idx) => {
+                          {carinfo.length === 0 ? "" : carinfo.map((data, idx) => {
                             return (
                               <tr>
                                 <td className='table-d' id='dash-td'>

@@ -144,9 +144,9 @@ const Signup = () => {
           </Alert>
         </Snackbar>
       </div>
-      <footer>
-        <img id='drive' src='../image/footer_img.png' alt='drive' />
-      </footer>
+      <div className="carIng-box">
+        <img src='../image/footer_img.png' alt='drive' />
+      </div>
     </div>
   );
 };

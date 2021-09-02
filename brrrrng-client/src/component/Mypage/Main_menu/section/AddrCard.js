@@ -16,7 +16,7 @@ const AddrCard = ({ address }) => {
                 </tr>
               </thead>
               <tbody>
-                {address.map((data, idx) => {
+                {address.length === 0 ? "" : address.map((data, idx) => {
                   return (
                     <tr key={idx}>
                       <td className='table-addr-d' id='dash-d'>

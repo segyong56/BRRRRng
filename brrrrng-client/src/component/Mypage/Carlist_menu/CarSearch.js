@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "../mypage.css";
 import "antd/dist/antd.css";
-import { message, Alert } from "antd";
+import { Alert } from "antd";
 import Header from "../util/Header";
+import Footer from "../util/Footer"
 import SideMenu from "../util/SideMenu";
 import ResultList from "./section/ResultList";
 import axios from "axios";
-import carInfo from "../../../dummydata/carInfo";
 
 const CarSearch = () => {
   const [carname, setCarname] = useState("");
@@ -84,6 +84,7 @@ const CarSearch = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

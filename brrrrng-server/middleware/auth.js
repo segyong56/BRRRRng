@@ -11,7 +11,7 @@ const auth = async (req, res, next) => {
     //토큰이 유효하면 pass
     if (accessDecoded) {
       req.cookies.accessToken = accessToken;
-      req.body._id = userData._id;
+      req.body.userData = accessDecoded;
       return next();
     }
   } catch (error) {
@@ -25,15 +25,8 @@ const auth = async (req, res, next) => {
 
         if (user.refreshToken === refreshToken) {
           //토큰재발급
-          const userData = {
-            _id: user._id,
-            username: user.username,
-            email: user.email,
-            carid: user.carid,
-            address: user.address,
-          };
           req.cookies.accessToken = genAccessToken(userData);
-          req.body._id = userData._id;
+          req.body.userData = refreshDecoded;
           return next();
         }
       }

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../mypage.css'
 import Header from '../util/Header'
+import Footer from '../util/Footer'
 import SideMenu from '../util/SideMenu'
 import ListTable from './section/ListTable'
 
-import carInfo from '../../../dummydata/carInfo'
+
 import axios from 'axios'
 
 const Carlist = () => {
@@ -19,7 +20,7 @@ const Carlist = () => {
       setMyCarlist(response.data.userInfo.carinfo)
     })
 
-  }, [])
+  }, [myCarlist])
 
   return (
     <div>
@@ -46,7 +47,7 @@ const Carlist = () => {
             </div>
          </div>
     </section>
-
+    <Footer />
     </div>
   )
 }

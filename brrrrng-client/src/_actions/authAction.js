@@ -26,7 +26,9 @@ export const signupRequest = async (data) => {
 
 export const loginRequest = async (data) => {
   try {
-    const request = await axios.post(`${API_URL}/auth/login`, data);
+    const request = await axios.post(`${API_URL}/auth/login`, data, {
+      withCredentials: true,
+    });
     return {
       type: SUCCESS_LOGIN,
       payload: request,

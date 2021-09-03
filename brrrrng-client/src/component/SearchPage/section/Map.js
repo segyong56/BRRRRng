@@ -32,7 +32,6 @@ const Map = ({ lat, longi }) => {
 
   useEffect(() => {
     createMap();
- 
   }, []);
 
   

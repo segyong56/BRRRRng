@@ -53,13 +53,10 @@ const Login = () => {
       setErrorMessage("비밀번호를 입력하세요");
     } else {
       dispatch(loginRequest(data)).then((response) => {
-        console.log(response.payload);
         if (response.payload.data) {
-          console.log(response.payload);
           localStorage.setItem("id", response.payload.data.userInfo._id);
           history.push("/search");
         } else if (response.payload.error) {
-          console.log("errors");
         } else {
           setOpen(true);
           setErrorMessage("이메일 또는 비밀번호이 틀렸습니다.");
@@ -69,61 +66,64 @@ const Login = () => {
   };
 
   return (
-  
-    <div className="loginPage">
-    <div className="loginContainer">
-      <div className="loginImg-box">
-        <img id="login" src="../image/login.png" alt="login image" />
+    <div className='loginPage'>
+      <div className='loginContainer'>
+        <div className='loginImg-box'>
+          <img id='login' src='../image/login.png' alt='login' />
+        </div>
+        <div className='loginForm-box'>
+          <ul className='loginForm'>
+            <li>
+              <input
+                className='loginInput'
+                type='email'
+                placeholder='email'
+                value={email}
+                onChange={(e) => setEmail(e.currentTarget.value)}
+              />
+            </li>
+            <li>
+              <input
+                className='loginInput'
+                type='password'
+                placeholder='pw'
+                value={password}
+                onChange={(e) => setPassword(e.currentTarget.value)}
+              />
+            </li>
+            <li>
+              <div className='loginBtn-group'>
+                <button
+                  className='loginBtn login_btn'
+                  type='submit'
+                  onClick={loginHandler}
+                >
+                  Login
+                </button>
+                <Link className='login_btn signup_btn' to='/signup' type>
+                  Sign up
+                </Link>
+                <Link
+                  className='login_btn without_btn'
+                  id='without'
+                  to='/search'
+                >
+                  Start without Login
+                </Link>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div className="loginForm-box">
-        <ul className="loginForm">
-          <li>
-            <input
-              className="loginInput"
-              type="email"
-              placeholder="email"
-              value={email}
-              onChange={(e) => setEmail(e.currentTarget.value)}
-            />
-          </li>
-          <li>
-            <input
-              className="loginInput"
-              type="password"
-              placeholder="pw"
-              value={password}
-              onChange={(e) => setPassword(e.currentTarget.value)}
-            />
-          </li>
-          <li>
-            <div className="loginBtn-group">
-              <button
-                className="loginBtn login_btn"
-                type="submit"
-                onClick={loginHandler}
-              >
-                Login
-              </button>
-              <Link className="login_btn signup_btn" to="/signup" type>
-                Sign up
-              </Link>
-              <Link className="login_btn without_btn" id="without" to="/search">
-                Start without Login
-              </Link>
-            </div>
-          </li>
-        </ul>
+      <div className='carImg-box'>
+        <img src='../image/footer_img.png' alt='drive' />
       </div>
-    </div>
-    <div className="carImg-box">
-      <img src="../image/footer_img.png" alt="drive" />
-    </div>
       <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
         <Alert onClose={handleClose} severity='error'>
           {errorMessage}
         </Alert>
       </Snackbar>
-  </div>
+    </div>
   );
 };
 

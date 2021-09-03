@@ -2,7 +2,7 @@ import {
   SUCCESS_SIGNUP,
   SUCCESS_LOGIN,
   SUCCESS_LOGOUT,
-  ERROR_OCCURRED
+  ERROR_OCCURRED,
 } from "./types.js";
 
 import axios from "axios";
@@ -19,23 +19,25 @@ export const signupRequest = async (data) => {
   } catch (error) {
     return {
       type: ERROR_OCCURRED,
-      payload: error
-    }
+      payload: error,
+    };
   }
 };
 
 export const loginRequest = async (data) => {
   try {
-    const request = await axios.post(`${API_URL}/auth/login`, data);
+    const request = await axios.post(`${API_URL}/auth/login`, data, {
+      withCredentials: true,
+    });
     return {
       type: SUCCESS_LOGIN,
       payload: request,
     };
-  } catch (error){
+  } catch (error) {
     return {
       type: ERROR_OCCURRED,
-      payload: error
-    }
+      payload: error,
+    };
   }
 };
 

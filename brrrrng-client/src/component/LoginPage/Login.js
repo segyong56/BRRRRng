@@ -69,7 +69,7 @@ const Login = () => {
     <div className='loginPage'>
       <div className='loginContainer'>
         <div className='loginImg-box'>
-          <img id='login' src='../image/login.png' alt='login' />
+          <img id='login' src='../image/login.png' alt='login image' />
         </div>
         <div className='loginForm-box'>
           <ul className='loginForm'>

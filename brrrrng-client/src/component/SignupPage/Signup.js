@@ -81,7 +81,7 @@ const Signup = () => {
     <div className='signupPage'>
       <div className='signupContainer'>
         <div className='signupImg-box'>
-          <img id='login' src='../image/create.png' alt='create' />
+          <img id='login' src='../image/create.png' alt='create image' />
         </div>
         <div className='loginForm-box'>
           <ul className='loginForm'>

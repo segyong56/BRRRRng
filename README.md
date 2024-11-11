@@ -1,4 +1,5 @@
 # BRRRRng
+전기차 충전소 찾기 서비스
 
 # Flow Chart
 ![back_flowchart](https://user-images.githubusercontent.com/75926861/130465685-3077de5b-084d-42ac-9576-af06879fa224.png)
